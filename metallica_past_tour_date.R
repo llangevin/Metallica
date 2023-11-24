@@ -91,9 +91,36 @@ read_met_shows <- function() {
   }
 read_met_shows()
 
+#Corrections
+met_shows$state[met_shows$city == "Victoriaville"] <- "QC"
+met_shows$city[met_shows$city == "Glenn Falls"] <- "Glens Falls"
+
+#Add Year of the show
+met_shows$show_year<- as.numeric(format(met_shows$show_date,"%Y"))
+
+#Add the show number
+met_shows$show_number <- nrow(met_shows) - as.numeric(rownames(met_shows)) +1
+
 #save the list of show
 saveRDS(met_shows, file="./data/met_shows_20231120.Rda")
 met_shows <- readRDS(file="./data/met_shows_20231120.Rda")
+
+
+#Add city geolocalization
+library(dplyr)
+library(tidygeocoder)
+
+address_components <- data.frame(
+  city=c('New-York', 'Montreal', 'Paris', 'London', 'Glasgow'),
+  state=c('NY', 'QC', '', '', ''),
+  country=c('United States', 'Canada', 'France', 'England', 'Scotland'),
+  stringsAsFactors=FALSE)
+
+lat_longs <- address_components %>%
+  geocode(city = city, state = state, country=country, method = "osm")
+
+met_city_lat_long <- unique(met_shows[c("city","state","country")]) %>%
+  geocode(city = city, state = state, country=country, method = "osm")
 
 #1 Add Show_Year
 #2 Add Show_Number
