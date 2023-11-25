@@ -15,7 +15,7 @@ library(tidygeocoder)
 #United Kingdom cities geolocalization info obtain without using country
 met_city_lat_long_part1 <- met_shows %>%
   select(city, state, country) %>%
-  filter(country %in% c('England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico')) %>%
+  filter(country %in% c('Antarctica','England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico')) %>%
   #mutate(country="") %>%
   distinct(city, state, country) %>%
   geocode(city = city, method = "osm")
@@ -24,10 +24,10 @@ met_city_lat_long_part1 <- met_shows %>%
 #Using city/state/country information to get geolocalization
 met_city_lat_long_part2 <- met_shows %>%
   select(city, state, country) %>%
-  filter(!(country %in% c('England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico'))) %>%
+  filter(!(country %in% c('Antarctica','England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico'))) %>%
   #mutate(country="") %>%
   distinct(city, state, country) %>%
-  geocode(city = city, method = "osm")
+  geocode(city = city, state = state, country=country, method = "osm")
 
 met_city_lat_long <- rbind(met_city_lat_long_part1,met_city_lat_long_part2)
 rm(met_city_lat_long_part1)
@@ -36,3 +36,33 @@ rm(met_city_lat_long_part2)
 #save metallica city show geolocalization
 saveRDS(met_city_lat_long, file="./data/met_city_lat_long_20231124.Rda")
 met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20231124.Rda")
+
+################################################
+#Mapping the shows
+# some standard map packages.
+install.packages(c("maps", "mapdata"))
+install.packages(c("leaflet"))
+library(leaflet)
+leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = met_city_lat_long,
+             lng = ~long, lat = ~lat,
+             popup = paste(paste('<b>City:</b>',
+                                 met_city_lat_long$city)))
+
+#city stats
+met_shows_city_stats <- met_shows %>%
+  group_by(city, state, country) %>% 
+  summarise(n_shows=n(), min_date=min(show_date), max_date=max(show_date))
+
+met_shows_city_stats <- left_join(met_shows_city_stats, met_city_lat_long, by = c('city', 'state', 'country'))
+
+leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(data = met_shows_city_stats,
+             lng = ~long, lat = ~lat,
+             popup = paste(paste('<b>City:</b>',met_shows_city_stats$city),
+                           paste('<b>Nb of Shows:</b>',met_shows_city_stats$n_shows),
+                           paste('<b>First Show:</b>',met_shows_city_stats$min_date),
+                           paste('<b>Last Show:</b>',met_shows_city_stats$max_date),
+                           sep = '<br/>'))

@@ -105,23 +105,6 @@ met_shows$show_number <- nrow(met_shows) - as.numeric(rownames(met_shows)) +1
 saveRDS(met_shows, file="./data/met_shows_20231120.Rda")
 met_shows <- readRDS(file="./data/met_shows_20231120.Rda")
 
-
-#Add city geolocalization
-library(dplyr)
-library(tidygeocoder)
-
-address_components <- data.frame(
-  city=c('New-York', 'Montreal', 'Paris', 'London', 'Glasgow'),
-  state=c('NY', 'QC', '', '', ''),
-  country=c('United States', 'Canada', 'France', 'England', 'Scotland'),
-  stringsAsFactors=FALSE)
-
-lat_longs <- address_components %>%
-  geocode(city = city, state = state, country=country, method = "osm")
-
-met_city_lat_long <- unique(met_shows[c("city","state","country")]) %>%
-  geocode(city = city, state = state, country=country, method = "osm")
-
 #1 Add Show_Year
 #2 Add Show_Number
 #3 Add city geolocalization
