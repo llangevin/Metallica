@@ -1,6 +1,6 @@
 # Metallica Past Tours Dates
 
-![](https://upload.wikimedia.org/wikipedia/commons/e/ea/Metallica_wordmark.svg){width="558"}
+![](https://upload.wikimedia.org/wikipedia/commons/e/ea/Metallica_wordmark.svg)
 
 ### Shit Project about Metallica shows
 
