@@ -1,8 +1,8 @@
-# Metallica Past Tours Dates
+# Metallica Shit Project
 
 ![](https://upload.wikimedia.org/wikipedia/commons/e/ea/Metallica_wordmark.svg)
 
-### Shit Project about Metallica shows
+### Project about Metallica Past Tours Dates Shows & Discography
 
 Using information from Metallica website: [www.metallica.com](https://www.metallica.com/)
 

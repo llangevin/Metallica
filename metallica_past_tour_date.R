@@ -39,6 +39,9 @@ read_met_shows <- function() {
     
     #Date of the Show
     show_date <- as.Date(gsub("\n","", m_page %>% html_nodes(".date-numbers") %>% html_text()), "%b %d, %Y")
+
+    #Add Year of the show
+    show_year<- as.numeric(format(show_date,"%Y"))
     
     #.venue-city p
     show_venue_city <- gsub("\n@\n"," @ ", m_page %>% html_nodes(".venue-city") %>% html_text())
@@ -70,9 +73,9 @@ read_met_shows <- function() {
 
     #Append page shows to main list of shows
     if(pg == 1) {
-      met_shows <- data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, stringsAsFactors = FALSE)
+      met_shows <- data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, stringsAsFactors = FALSE)
     } else {
-      met_shows <- rbind(met_shows, data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, stringsAsFactors = FALSE))
+      met_shows <- rbind(met_shows, data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, stringsAsFactors = FALSE))
     }
     
     #Next page to read if any
@@ -92,14 +95,20 @@ read_met_shows <- function() {
 read_met_shows()
 
 #Corrections
-met_shows$state[met_shows$city == "Victoriaville"] <- "QC"
-met_shows$city[met_shows$city == "Glenn Falls"] <- "Glens Falls"
-
-#Add Year of the show
-met_shows$show_year<- as.numeric(format(met_shows$show_date,"%Y"))
+#met_shows$state[met_shows$city == "Victoriaville"] <- "QC"
+met_shows$state[met_shows$show_ID == "1986-12-07-victoriaville-canada"] <- "QC"
+#met_shows$city[met_shows$city == "Glenn Falls"] <- "Glens Falls"
+met_shows$city[met_shows$show_ID == "1986-04-27-glenn-falls-new-york"] <- "Glens Falls"
 
 #Add the show number
 met_shows$show_number <- nrow(met_shows) - as.numeric(rownames(met_shows)) +1
+
+#Add the country/continent
+m_page <- read_html('https://www.metallica.com/tour/past/?pg=1')
+country_continent <- data.frame(m_page %>% html_nodes(".js-option-country") %>% html_attr("data-country"), m_page %>% html_nodes(".js-option-country") %>% html_attr("data-continent"))
+names(country_continent)[1] <- "country"
+names(country_continent)[2] <- "continent"
+met_shows <- left_join(met_shows, country_continent, by = c('country'))
 
 #save the list of show
 saveRDS(met_shows, file="./data/met_shows_20231120.Rda")
