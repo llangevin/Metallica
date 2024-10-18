@@ -1,3 +1,7 @@
+#R script to read the Metallica Shows information from https://www.metallica.com/tour/past/
+#Generate met_shows dataset which contains 1 row per Metallica show with some attributes (date, location)
+#To update met_shows if it exists, use metallica_past_tour_date_update_shows.R
+
 Sys.getlocale()
 Sys.setlocale("LC_ALL", 'en_US.UTF-8')
 Sys.getenv()
@@ -13,7 +17,8 @@ library(rvest)
 #set working directory
 setwd("~/Projects/Metallica")
 
-#dataset fram
+#dataset frame
+#met_shows: Metallica shows
 met_shows<-data.frame()
 
 #parameters
@@ -99,6 +104,7 @@ read_met_shows()
 met_shows$state[met_shows$show_ID == "1986-12-07-victoriaville-canada"] <- "QC"
 #met_shows$city[met_shows$city == "Glenn Falls"] <- "Glens Falls"
 met_shows$city[met_shows$show_ID == "1986-04-27-glenn-falls-new-york"] <- "Glens Falls"
+met_shows$country[met_shows$show_ID == "1993-04-17-manila-phillippines"] <- "Philippines"
 
 #Add the show number
 met_shows$show_number <- nrow(met_shows) - as.numeric(rownames(met_shows)) +1
@@ -108,12 +114,44 @@ m_page <- read_html('https://www.metallica.com/tour/past/?pg=1')
 country_continent <- data.frame(m_page %>% html_nodes(".js-option-country") %>% html_attr("data-country"), m_page %>% html_nodes(".js-option-country") %>% html_attr("data-continent"))
 names(country_continent)[1] <- "country"
 names(country_continent)[2] <- "continent"
+country_continent[country_continent$continent == "null",]
+#Corrections
+country_continent$country[country_continent$country == "Phillippines"] <- "Philippines"
+country_continent$continent[country_continent$country == "Philippines"] <- "Asia"
+country_continent$continent[country_continent$country == "Russia"] <- "Europe"
 met_shows <- left_join(met_shows, country_continent, by = c('country'))
 
 #save the list of show
-saveRDS(met_shows, file="./data/met_shows_20231120.Rda")
-met_shows <- readRDS(file="./data/met_shows_20231120.Rda")
+saveRDS(met_shows, file="./data/met_shows_20241016.Rda")
 
+#validations and data checks
+print(Hidden_counter) #Number of shows from Metallica web site
+dim(met_shows)
+summary(met_shows)
+min(met_shows$show_date)
+max(met_shows$show_date)
+min(met_shows$show_year)
+max(met_shows$show_year)
+min(met_shows$show_number)
+max(met_shows$show_number)
+met_shows[is.na(met_shows$show_year),]
+met_shows[is.na(met_shows$show_number),]
+
+#Shows in Russia and Phillippines dont have continent
+table(met_shows$continent)
+table(met_shows$country)
+met_shows[met_shows$continent == "null",]
+met_shows[met_shows$country == "null",]
+met_shows[met_shows$show_ID == "null",]
+met_shows[met_shows$show_title == "null",]
+met_shows[met_shows$show_venue_city == "null",]
+met_shows[met_shows$city == "null",]
+met_shows[met_shows$show_weblink== "null",]
+
+#load the list of show
+met_shows <- readRDS(file="./data/met_shows_20241016.Rda")
+
+#0 Add validations and data checks
 #1 Add Show_Year
 #2 Add Show_Number
 #3 Add city geolocalization

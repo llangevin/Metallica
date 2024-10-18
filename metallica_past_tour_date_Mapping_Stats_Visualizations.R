@@ -10,12 +10,15 @@ rm(list = ls())
 library(tidyverse)
 library(rvest)
 
+setwd("C:/Users/Utilisateur/Documents/Projects/Metallica")
 ################################################
 #Mapping the shows
 # some standard map packages.
 install.packages(c("maps", "mapdata"))
 install.packages(c("leaflet"))
 library(leaflet)
+#met_city_lat_long from C:/Users/Utilisateur/Documents/Projects/Metallica/metillica_shows_city_geolocalization.R
+met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20231124.Rda")
 leaflet() %>% 
   addTiles() %>% 
   addMarkers(data = met_city_lat_long,
