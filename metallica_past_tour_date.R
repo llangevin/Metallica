@@ -122,7 +122,11 @@ country_continent$continent[country_continent$country == "Russia"] <- "Europe"
 met_shows <- left_join(met_shows, country_continent, by = c('country'))
 
 #save the list of show
-saveRDS(met_shows, file="./data/met_shows_20241016.Rda")
+saveRDS(met_shows, file="./data/met_shows_20241017.Rda")
+#save the list of show in CSV
+met_shows_csv <- "./data/metallica_shows.csv"
+if (file.exists(met_shows_csv)) {file.remove(met_shows_csv)}
+write.csv(met_shows,met_shows_csv, row.names = T)
 
 #validations and data checks
 print(Hidden_counter) #Number of shows from Metallica web site
@@ -149,7 +153,7 @@ met_shows[met_shows$city == "null",]
 met_shows[met_shows$show_weblink== "null",]
 
 #load the list of show
-met_shows <- readRDS(file="./data/met_shows_20241016.Rda")
+met_shows <- readRDS(file="./data/met_shows_20241017.Rda")
 
 #0 Add validations and data checks
 #1 Add Show_Year

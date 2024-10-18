@@ -45,6 +45,10 @@ met_city_lat_long <- left_join(met_city_continent, met_city_lat_long, by = c('ci
 
 #save metallica city show geolocalization
 saveRDS(met_city_lat_long, file="./data/met_city_lat_long_20241016.Rda")
+#save the list of show in CSV
+met_city_lat_long_csv <- "./data/metallica_city_lat_long.csv"
+if (file.exists(met_city_lat_long_csv)) {file.remove(met_city_lat_long_csv)}
+write.csv(met_city_lat_long,met_city_lat_long_csv, row.names = T)
 
 #load metallica city show geolocalization
 met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241016.Rda")

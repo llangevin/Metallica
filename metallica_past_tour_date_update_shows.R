@@ -129,6 +129,10 @@ met_shows <- rbind(metus_shows, met_shows, stringsAsFactors = FALSE)
 
 #save the list of show
 saveRDS(met_shows, file="./data/met_shows_20241017.Rda")
+#save the list of show in CSV
+met_shows_csv <- "./data/metallica_shows.csv"
+if (file.exists(met_shows_csv)) {file.remove(met_shows_csv)}
+write.csv(met_shows,met_shows_csv, row.names = T)
 
 #validations and data checks
 print(Hidden_counter) #Number of shows from Metallica web site
@@ -162,7 +166,7 @@ met_shows <- readRDS(file="./data/met_shows_20241017.Rda")
 library(tidygeocoder)
 
 #load metallica city show geolocalization
-met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241016.Rda")
+met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241017.Rda")
 
 #Part 1
 #United Kingdom cities geolocalization info obtain without using country
@@ -199,6 +203,10 @@ met_city_lat_long <- rbind(met_city_lat_long_new, met_city_lat_long, stringsAsFa
 
 #save metallica city show geolocalization
 saveRDS(met_city_lat_long, file="./data/met_city_lat_long_20241017.Rda")
+#save the list of show in CSV
+met_city_lat_long_csv <- "./data/metallica_city_lat_long.csv"
+if (file.exists(met_city_lat_long_csv)) {file.remove(met_city_lat_long_csv)}
+write.csv(met_city_lat_long,met_city_lat_long_csv, row.names = T)
 
 #validations and data checks
 dim(met_city_lat_long)
