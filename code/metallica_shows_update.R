@@ -161,16 +161,19 @@ met_shows[met_shows$show_weblink== "null",]
 #load the list of show
 met_shows <- readRDS(file="./data/met_shows_20241017.Rda")
 
-#Geolocalization
+#load metallica city show geolocalization
+met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241016.Rda")
+
+#Update Geolocalization
 #Add city geolocalization
 library(tidygeocoder)
 
-#load metallica city show geolocalization
-met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241017.Rda")
+#Identify new city from the update list of shows
+metus_shows_new_cities <- anti_join(met_shows, met_city_lat_long, by = c("city", "state", "country"))
 
 #Part 1
 #United Kingdom cities geolocalization info obtain without using country
-met_city_lat_long_part1 <- metus_shows %>%
+met_city_lat_long_part1 <- metus_shows_new_cities %>%
   select(city, state, country) %>%
   filter(country %in% c('Antarctica','England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico')) %>%
   #mutate(country="") %>%
@@ -179,7 +182,7 @@ met_city_lat_long_part1 <- metus_shows %>%
 
 #Part 2
 #Using city/state/country information to get geolocalization
-met_city_lat_long_part2 <- metus_shows %>%
+met_city_lat_long_part2 <- metus_shows_new_cities %>%
   select(city, state, country) %>%
   filter(!(country %in% c('Antarctica','England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico'))) %>%
   #mutate(country="") %>%
@@ -187,13 +190,13 @@ met_city_lat_long_part2 <- metus_shows %>%
   geocode(city = city, state = state, country=country, method = "osm")
 
 met_city_lat_long_new <- rbind(met_city_lat_long_part1,met_city_lat_long_part2)
-#use if Part 1 does not cases
+#use line below instead if Part 1 does not have cases
 #met_city_lat_long_new <- met_city_lat_long_part2
 rm(met_city_lat_long_part1)
 rm(met_city_lat_long_part2)
 
 #Adding Continent
-met_city_continent <-metus_shows %>%
+met_city_continent <-metus_shows_new_cities %>%
   distinct(city, state, country, continent)
 met_city_lat_long_new <- left_join(met_city_continent, met_city_lat_long_new, by = c('city', 'state', 'country'))
 rm(met_city_continent)
@@ -211,14 +214,25 @@ write.csv(met_city_lat_long,met_city_lat_long_csv, row.names = T)
 #validations and data checks
 dim(met_city_lat_long)
 summary(met_city_lat_long)
-met_shows[is.na(met_city_lat_long$lat),]
-met_shows[is.na(met_city_lat_long$long),]
+met_city_lat_long[is.na(met_city_lat_long$lat),]
+met_city_lat_long[is.na(met_city_lat_long$long),]
 table(met_city_lat_long$continent)
 table(met_city_lat_long$country)
-met_shows[met_city_lat_long$continent == "null",]
-met_shows[met_city_lat_long$country == "null",]
-met_shows[met_city_lat_long$state == "null",]
-met_shows[met_city_lat_long$city == "null",]
+met_city_lat_long[met_city_lat_long$continent == "null",]
+met_city_lat_long[met_city_lat_long$country == "null",]
+met_city_lat_long[met_city_lat_long$state == "null",]
+met_city_lat_long[met_city_lat_long$city == "null",]
+
+#Duplicates in city
+met_city_lat_long %>% group_by(city, state, country) %>% summarise(Count=n()) %>% filter(Count > 1)
+
+#Corrections, removing duplicates
+#met_city_lat_long %>% distinct() %>% group_by(city, state, country) %>% summarise(Count=n()) %>% filter(Count > 1)
+#met_city_lat_long <- met_city_lat_long %>% distinct()
+#met_city_lat_long <- met_city_lat_long %>% filter(city != 'Warsaw' | long != 21.0067249)
+
+#All cities in met_shows in met_city_lat_long
+anti_join(met_shows, met_city_lat_long, by = c("city", "state", "country"))
 
 #load metallica city show geolocalization
 met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241017.Rda")

@@ -105,6 +105,8 @@ met_shows$state[met_shows$show_ID == "1986-12-07-victoriaville-canada"] <- "QC"
 #met_shows$city[met_shows$city == "Glenn Falls"] <- "Glens Falls"
 met_shows$city[met_shows$show_ID == "1986-04-27-glenn-falls-new-york"] <- "Glens Falls"
 met_shows$country[met_shows$show_ID == "1993-04-17-manila-phillippines"] <- "Philippines"
+met_shows$show_venue_city[met_shows$state == " D.C."] <- "Washington,DC,United States"
+met_shows$state[met_shows$state == " D.C."] <- "DC"
 
 #Add the show number
 met_shows$show_number <- nrow(met_shows) - as.numeric(rownames(met_shows)) +1

@@ -126,9 +126,9 @@ library(dplyr)
 library(tidygeocoder)
 
 address_components <- data.frame(
-  city=c('Glens Falls', 'San Juan', 'Manila', 'Chek Lap Kok', 'South Shetland Islands', 'New-York', 'Montreal', 'Paris', 'London', 'Glasgow', 'London', 'Glasgow', 'London', 'Glasgow'),
-  state=c('NY', '', '', '', '', 'NY', 'QC', '', '', '', '', '', '', ''),
-  country=c('United States', '', '', '', '', 'United States', 'Canada', 'France', 'England', 'Scotland', 'United Kingdom', 'United Kingdom', '', ''),
+  city=c('Warsaw','Glens Falls', 'San Juan', 'Manila', 'Chek Lap Kok', 'South Shetland Islands', 'New-York', 'Montreal', 'Paris', 'London', 'Glasgow', 'London', 'Glasgow', 'London', 'Glasgow'),
+  state=c('','NY', '', '', '', '', 'NY', 'QC', '', '', '', '', '', '', ''),
+  country=c('Poland','United States', '', '', '', '', 'United States', 'Canada', 'France', 'England', 'Scotland', 'United Kingdom', 'United Kingdom', '', ''),
   stringsAsFactors=FALSE)
 
 #Moscow,Russia
@@ -142,9 +142,9 @@ address_components <- data.frame(
   country=c('United States', 'Russia', 'Russia', 'Russia', 'Antarctica'),
   stringsAsFactors=FALSE)
 
-lat_longs <- address_components[5,] %>%
+lat_longs <- address_components[1,] %>%
   geocode(city = city, state = state, country=country, method = "osm")
-lat_longs <- address_components[5,] %>%
+lat_longs <- address_components[1,] %>%
   geocode(city = city, method = "osm")
 
 address_components[c(1,2),] %>%
@@ -243,3 +243,79 @@ m_page %>% html_nodes(".js-album-option") %>% html_attr("data-albumdeliverykey")
 #.js-song-option
 m_page %>% html_nodes(".js-song-option") %>% html_text()
 m_page %>% html_nodes(".js-song-option") %>% html_attr("data-albumdeliverykey")
+
+
+############################################################
+#read https://www.metallica.com/tour/2024-09-29-mexico-city-mexico.html
+m_show_page <- read_html('https://www.metallica.com/tour/2024-09-29-mexico-city-mexico.html')
+
+#Info
+m_show_page %>% html_nodes(".event-header__date") %>% html_text()
+m_show_page %>% html_nodes(".c-banner-heading") %>% html_text()
+m_show_page %>% html_nodes(".mobile") %>% html_text()
+m_show_page %>% html_nodes(".desktop") %>% html_text()
+m_show_page %>% html_nodes(".event-header-eventName") %>% html_text()
+
+#Tour
+#Other Acts
+m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text()
+m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[1]
+m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text()
+m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[1]
+
+#Songs
+m_show_page %>% html_nodes(".c-setlist__song__inner") %>% html_text()
+m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_text()
+m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_attr("href")
+m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_attr("a")
+m_show_page %>% html_nodes(".c-setlist") %>% html_text()
+m_show_page %>% html_nodes(".c-setlist__song") %>% html_text()
+
+#load the list of show
+met_shows <- readRDS(file="./data/met_shows_20241017.Rda")
+dim(met_shows)
+met_shows$show_weblink[1]
+
+#Build dataset
+met_show_info<-data.frame()
+met_show_songs<-data.frame()
+
+#header_date <- character(dim(met_shows)[1])
+header_date <- character(2)
+banner_heading <- character(2)
+banner_heading_desktop <- character(2)
+banner_heading_mobile <- character(2)
+tour_title <- character(2)
+tour_value <- character(2)
+Other_acts_title <- character(2)
+Other_acts_value <- character(2)
+#for (i in (1:dim(met_shows)[1])) {
+for (i in (1:2)) {
+  show_weblink <- met_shows$show_weblink[i]
+  m_show_page <- read_html(show_weblink)
+  #gsub("\n","", m_page %>% html_nodes(".js-counter") %>% html_text())
+  header_date <- gsub("\n","", m_show_page %>% html_nodes(".event-header__date") %>% html_text())
+  banner_heading <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-heading") %>% html_text())
+  banner_heading_desktop <- gsub(",","", m_show_page %>% html_nodes(".desktop") %>% html_text())
+  banner_heading_mobile <- gsub(",","", m_show_page %>% html_nodes(".mobile") %>% html_text())
+  tour_title <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[1])
+  tour_value <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[1])
+  Other_acts_title <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[2])
+  Other_acts_value <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[2])
+
+  songs <- gsub("\n","", m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_text())
+  songs_link <- m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_attr("href")
+  
+  #Append page shows to main list of shows
+  if(i == 1) {
+    met_show_info <- data.frame(header_date, banner_heading, banner_heading_desktop, banner_heading_mobile, tour_title, tour_value, Other_acts_title, Other_acts_value, stringsAsFactors = FALSE)
+    met_show_songs <- data.frame(show_weblink, songs, songs_link, stringsAsFactors = FALSE)
+  } else {
+    met_show_info <- rbind(met_show_info, data.frame(header_date, banner_heading, banner_heading_desktop, banner_heading_mobile, tour_title, tour_value, Other_acts_title, Other_acts_value, stringsAsFactors = FALSE))
+    met_show_songs <- rbind(met_show_songs, data.frame(show_weblink, songs, songs_link, stringsAsFactors = FALSE))
+  }
+}
+
+#Build dataset
+met_show_info<-data.frame()
+met_show_info <- data.frame(header_date, banner_heading, banner_heading_desktop, banner_heading_mobile, tour_title, tour_value, Other_acts_title, Other_acts_value, stringsAsFactors = FALSE)
