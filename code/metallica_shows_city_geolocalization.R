@@ -41,7 +41,8 @@ rm(met_city_lat_long_part2)
 #Adding Continent
 met_city_continent <-met_shows %>%
   distinct(city, state, country, continent)
-met_city_lat_long <- left_join(met_city_continent, met_city_lat_long, by = c('city', 'state', 'country'))
+met_city_lat_long <- left_join(met_city_continent, met_city_lat_long, by = c('city', 'state', 'country')) 
+met_city_lat_long <- met_city_lat_long %>% arrange(city, state, country)
 
 #save metallica city show geolocalization
 saveRDS(met_city_lat_long, file="./data/met_city_lat_long_20241016.Rda")

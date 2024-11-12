@@ -1,533 +1,533 @@
 "","city","state","country","continent","lat","long"
-"1","Riyadh","","Saudi Arabia","Asia",24.638916,46.7160104
-"2","Detroit","MI","United States","North America",42.3315509,-83.0466403
-"3","St. Louis","MO","United States","North America",38.6280278,-90.1910154
-"4","Indio","CA","United States","North America",33.7192808,-116.2188054
-"5","Phoenix","AZ","United States","North America",33.4484367,-112.074141
-"6","Los Angeles","CA","United States","North America",34.0536909,-118.242766
-"7","Arlington","TX","United States","North America",32.7355816,-97.1071186
-"8","Montreal","QC","Canada","North America",45.5031824,-73.5698065
-"9","East Rutherford","NJ","United States","North America",40.833989,-74.0970865
-"10","Gothenburg","","Sweden","Europe",57.7072326,11.9670171
-"11","Castle Donington","","England","Europe",52.8411689,-1.3409476
-"12","Hamburg","","Germany","Europe",53.550341,10.000654
-"13","Paris","","France","Europe",48.8534951,2.3483915
-"14","Amsterdam","","Netherlands","Europe",52.3730796,4.8924534
-"15","Hollywood","FL","United States","North America",26.0112014,-80.1494901
-"16","New York","NY","United States","North America",40.7127281,-74.0060152
-"17","Pittsburgh","PA","United States","North America",40.4416941,-79.9900861
-"18","Buffalo","NY","United States","North America",42.8867166,-78.8783922
-"19","Chicago","IL","United States","North America",41.8755616,-87.6244212
-"20","Lisbon","","Portugal","Europe",38.7077507,-9.1365919
-"21","Madrid","","Spain","Europe",40.4167047,-3.7035825
-"22","Bilbao","","Spain","Europe",43.2630018,-2.9350039
-"23","Werchter","","Belgium","Europe",50.970584,4.6937963
-"24","Frauenfeld","","Switzerland","Europe",47.5561915,8.8963347
-"25","Clisson","","France","Europe",47.0877218,-1.2817422
-"26","Hockenheim","","Germany","Europe",49.3188892,8.5475467
-"27","Prague","","Czech Republic","Europe",50.0596288,14.446459273258
-"28","Florence","","Italy","Europe",43.7698712,11.2555757
-"29","Landgraaf","","Netherlands","Europe",50.9080845,6.0264604
-"30","Copenhagen","","Denmark","Europe",55.6867243,12.5700724
-"31","Boston","MA","United States","North America",42.3554334,-71.060511
-"32","Napa","CA","United States","North America",38.2971367,-122.2855293
-"33","San Francisco","CA","United States","North America",37.7790262,-122.419906
-"34","Belo Horizonte","","Brazil","South America",-19.9227318,-43.9450948
-"35","São Paulo","","Brazil","South America",-1.2043218,-47.1583944
-"36","Curitiba","","Brazil","South America",-25.4295963,-49.2712724
-"37","Porto Alegre","","Brazil","South America",-30.0324999,-51.2303767
-"38","Buenos Aires","","Argentina","South America",-34.6075682,-58.4370894
-"39","Santiago","","Chile","South America",-33.4377756,-70.6504502
-"40","Las Vegas","NV","United States","North America",36.1672559,-115.148516
-"41","Daytona Beach","FL","United States","North America",29.2108147,-81.0228331
-"42","Atlanta","GA","United States","North America",33.7489924,-84.3902644
-"43","Sacramento","CA","United States","North America",38.5810606,-121.493895
-"44","Louisville","KY","United States","North America",38.2542376,-85.759407
-"45","Bay Area","CA","United States","North America",37.7884969,-122.3558473
-"46","San Rafael","CA","United States","North America",37.9747795,-122.5316686
-"47","Sonoma","CA","United States","North America",38.280773,-122.439732761757
-"48","Columbus","OH","United States","North America",39.9622601,-83.0007065
-"49","Charlotte","NC","United States","North America",35.2272086,-80.8430827
-"50","Auckland","","New Zealand","Oceania",-36.852095,174.7631803
-"51","Brisbane","","Australia","Oceania",-27.4689682,153.0234991
-"52","Sydney","","Australia","Oceania",-33.768528,150.956855952395
-"53","Melbourne","","Australia","Oceania",-37.8142454,144.9631732
-"54","Adelaide","","Australia","Oceania",-34.9281805,138.5999312
-"55","Perth","","Australia","Oceania",-31.9558933,115.8605855
-"56","Mannheim","","Germany","Europe",49.4892913,8.4673098
-"57","Munich","","Germany","Europe",48.1371079,11.5753822
-"58","Warsaw","","Poland","Europe",52.2319581,21.0067249
-"59","Vienna","","Austria","Europe",48.2083537,16.3725042
-"60","Bucharest","","Romania","Europe",44.4361414,26.1027202
-"61","Moscow","","Russia","Europe",55.7505412,37.6174782
-"62","Tartu","","Estonia","Europe",58.3801207,26.72245
-"63","Hämeenlinna","","Finland","Europe",60.9948584,24.46654
-"64","Trondheim","","Norway","Europe",63.4304475,10.3952118
-"65","Berlin","","Germany","Europe",52.5170365,13.3888599
-"66","London","","England","Europe",51.4893335,-0.144055084527687
-"67","Manchester","","England","Europe",53.4794892,-2.2451148
-"68","Brussels","","Belgium","Europe",50.8550018,4.35123337611662
-"69","Cologne","","Germany","Europe",50.938361,6.959974
-"70","Meath","","Ireland","Europe",53.88930485,-6.72546318819054
-"71","Oakland","CA","United States","North America",37.8044557,-122.271356
-"72","Zurich","","Switzerland","Europe",47.3744489,8.5410422
-"73","Milan","","Italy","Europe",45.4641943,9.1896346
-"74","Barcelona","","Spain","Europe",41.3828939,2.1774322
-"75","Grand Rapids","MI","United States","North America",42.9632425,-85.6678639
-"76","Indianapolis","IN","United States","North America",39.7683331,-86.1583502
-"77","Kansas City","MO","United States","North America",39.100105,-94.5781416
-"78","Wichita","KS","United States","North America",37.6922361,-97.3375448
-"79","Lubbock","TX","United States","North America",33.5855677,-101.8470215
-"80","El Paso","TX","United States","North America",31.7550511,-106.488234
-"81","Cleveland","OH","United States","North America",41.4996574,-81.6936772
-"82","Cincinnati","OH","United States","North America",39.1014537,-84.5124602
-"83","Raleigh","NC","United States","North America",35.7803977,-78.6390989
-"84","Nashville","TN","United States","North America",36.1622767,-86.7742984
-"85","Birmingham","AL","United States","North America",33.5206824,-86.8024326
-"86","Little Rock","AR","United States","North America",34.7465071,-92.2896267
-"87","Tulsa","OK","United States","North America",36.1563122,-95.9927516
-"88","Fresno","CA","United States","North America",36.7295295,-119.708861260756
-"89","Portland","OR","United States","North America",45.5202471,-122.674194
-"90","Spokane","WA","United States","North America",47.6571934,-117.42351
-"91","Salt Lake City","UT","United States","North America",40.7596198,-111.886797
-"92","Boise","ID","United States","North America",43.6166163,-116.200886
-"93","Albany","NY","United States","North America",42.6511674,-73.754968
-"94","Philadelphia","PA","United States","North America",39.9527237,-75.1635262
-"95","State College","PA","United States","North America",40.7944504,-77.8616386
-"96","Milwaukee","WI","United States","North America",43.0349931,-87.922497
-"97","Austin","TX","United States","North America",30.2711286,-97.7436995
-"98","Saskatoon","SK","Canada","North America",52.131802,-106.660767
-"99","Winnipeg","MB","Canada","North America",49.8955367,-97.1384584
-"100","Sioux Falls","SD","United States","North America",43.5488256,-96.7307737
-"101","Grand Forks","ND","United States","North America",47.9252042,-97.0306741
-"102","Lincoln","NE","United States","North America",40.8088861,-96.7077751
-"103","Minneapolis","MN","United States","North America",44.9772995,-93.2654692
-"104","Madison","WI","United States","North America",43.074761,-89.3837613
-"105","Helsinki","","Finland","Europe",60.1674881,24.9427473
-"106","Stockholm","","Sweden","Europe",59.3251172,18.0710935
-"107","Oslo","","Norway","Europe",59.9133301,10.7389701
-"108","Leipzig","","Germany","Europe",51.3406321,12.3747329
-"109","Kraków","","Poland","Europe",50.0469432,19.9971534358367
-"110","Geneva","","Switzerland","Europe",46.2017559,6.1466014
-"111","Stuttgart","","Germany","Europe",48.7784485,9.1800132
-"112","Budapest","","Hungary","Europe",47.4978918,19.0401609
-"113","Herning","","Denmark","Europe",56.1379757,8.9746623
-"114","Bologna","","Italy","Europe",44.4938203,11.3426327
-"115","Turin","","Italy","Europe",45.0677551,7.6824892
-"116","Antwerp","","Belgium","Europe",51.2211097,4.3997081
-"117","Birmingham","","England","Europe",52.4796992,-1.9026911
-"118","Glasgow","","Scotland","Europe",55.861155,-4.2501687
-"119","Lyon","","France","Europe",45.7578137,4.8320114
-"120","Edmonton","AB","Canada","North America",53.5462055,-113.491241
-"121","Vancouver","BC","Canada","North America",49.2608724,-123.113952
-"122","Seattle","WA","United States","North America",47.6038321,-122.330062
-"123","San Diego","CA","United States","North America",32.7174202,-117.1627728
-"124","Pasadena","CA","United States","North America",34.1476507,-118.1441551
-"125","Toronto","ON","Canada","North America",43.6534817,-79.3839347
-"126","Quebec City","QC","Canada","North America",46.8137431,-71.2084061
-"127","Miami","FL","United States","North America",25.7741728,-80.19362
-"128","Orlando","FL","United States","North America",28.5421109,-81.3790304
-"129","Dallas","TX","United States","North America",32.7762719,-96.7968559
-"130","San Antonio","TX","United States","North America",29.4246002,-98.4951405
-"131","Houston","TX","United States","North America",29.7589382,-95.3676974
-"132","Newton","IA","United States","North America",41.6997139,-93.0538852
-"133","Denver","CO","United States","North America",39.7392364,-104.984862
-"134","Foxborough","MA","United States","North America",42.0653768,-71.2478308
-"135","Uniondale","NY","United States","North America",40.7095827,-73.592341
-"136","Baltimore","MD","United States","North America",39.2908816,-76.610759
-"137","Mexico City","","Mexico","North America",19.4326296,-99.1331785
-"138","Singapore","","Singapore","Asia",1.2899175,103.8519072
-"139","Chek Lap Kok","","Hong Kong","Asia",22.3125477,113.918404507739
-"140","Beijing","","China","Asia",39.9057136,116.3912972
-"141","Shanghai","","China","Asia",31.2323437,121.4691024
-"142","Seoul","","South Korea","Asia",37.5666791,126.9782914
-"143","San José","","Costa Rica","North America",9.9325427,-84.0795782
-"144","Guatemala City","","Guatemala","North America",14.6424667,-90.5131361
-"145","Bogotá","","Colombia","South America",4.6529539,-74.0835643
-"146","Quito","","Ecuador","South America",-0.2201641,-78.5123274
-"147","San Juan","","Puerto Rico","North America",18.465299,-66.116666
-"148","Mountain View","CA","United States","North America",37.3893889,-122.0832101
-"149","San Jose","CA","United States","North America",37.3361663,-121.890591
-"150","Berkeley","CA","United States","North America",37.8708393,-122.272863
-"151","Rio de Janeiro","","Brazil","South America",-22.9110137,-43.2093727
-"152","Leeds","","England","Europe",53.7974185,-1.5437941
-"153","Reading","","England","Europe",51.4564242,-0.9700664
-"154","Saint Petersburg","","Russia","Europe",59.938732,30.316229
-"155","Bergen","","Norway","Europe",60.3943055,5.3259192
-"156","Assago","","Italy","Europe",45.4053966,9.1313547
-"157","Gelsenkirchen","","Germany","Europe",51.5110321,7.0960124
-"158","Washington","DC","United States","North America",38.8950368,-77.0365427
-"159","Anaheim","CA","United States","North America",33.8347516,-117.911732
-"160","Istanbul","","Turkey","Asia",41.006381,28.9758715
-"161","Knebworth","","England","Europe",51.8658893,-0.1844945
-"162","Basel","","Switzerland","Europe",47.5581077,7.5878261
-"163","Rome","","Italy","Europe",41.8933203,12.4829321
-"164","Pilton","","England","Europe",55.97371,-3.2404424
-"165","Nürburg","","Germany","Europe",50.3413391,6.9519229
-"166","Nuremberg","","Germany","Europe",49.453872,11.077298
-"167","Horsens","","Denmark","Europe",55.8611696,9.8444774
-"168","Asunción","","Paraguay","South America",-25.2800459,-57.6343814
-"169","Lima","","Peru","South America",-12.0621065,-77.0365256
-"170","South Shetland Islands","","Antarctica","Antarctica",-62.6079191,-60.6596199960683
-"171","Jakarta","","Indonesia","Asia",-6.175247,106.8270488
-"172","Kuala Lumpur","","Malaysia","Asia",3.1516964,101.6942371
-"173","Osaka","","Japan","Asia",34.6937569,135.5014539
-"174","Tokyo","","Japan","Asia",35.6840574,139.7744912
-"175","Roskilde","","Denmark","Europe",55.6433478,12.0819247
-"176","Johannesburg","","South Africa","Africa",-26.205,28.049722
-"177","Cape Town","","South Africa","Africa",-33.928992,18.417396
-"178","Abu Dhabi","","United Arab Emirates","Asia",24.4538352,54.3774014
-"179","New Orleans","LA","United States","North America",29.9759983,-90.0782127
-"180","Atlantic City","NJ","United States","North America",39.3642852,-74.4229351
-"181","Nickelsdorf","","Austria","Europe",47.9403019,17.0661763
-"182","Yverdon-les-Bains","","Switzerland","Europe",46.7785711,6.6409158
-"183","Udine","","Italy","Europe",46.0634632,13.2358377
-"184","Belgrade","","Serbia","Europe",44.8178131,20.4568974
-"185","Bangalore","","India","Asia",12.9767936,77.590082
-"186","Delhi","","India","Asia",24.6399612,81.5737895575531
-"187","Halifax","NS","Canada","North America",44.648618,-63.5859487
-"188","Amnéville","","France","Europe",49.2603613,6.1420739
-"189","Santa Monica","CA","United States","North America",34.0194704,-118.491227
-"190","Christchurch","","New Zealand","Oceania",-43.530955,172.6364343
-"191","Athens","","Greece","Europe",37.9755648,23.7348324
-"192","Sofia","","Bulgaria","Europe",42.6977028,23.3217359
-"193","Jonschwil","","Switzerland","Europe",47.4231947,9.0865706
-"194","Tel Aviv","","Israel","Asia",32.0852997,34.7818064
-"195","Zagreb","","Croatia","Europe",45.84264135,15.9622314765936
-"196","Belfast","","Northern Ireland","Europe",54.596391,-5.9301829
-"197","Vilnius","","Lithuania","Europe",54.6870458,25.2829111
-"198","Riga","","Latvia","Europe",56.9493977,24.1051846
-"199","Tallinn","","Estonia","Europe",59.4372155,24.7453688
-"200","Caracas","","Venezuela","South America",10.5060934,-66.9146008
-"201","Panama City","","Panama","North America",8.9714493,-79.5341802
-"202","Monterrey","","Mexico","North America",25.6802019,-100.315258
-"203","Guadalajara","","Mexico","North America",20.6720375,-103.338396
-"204","Córdoba","","Argentina","South America",-31.4166867,-64.1834193
-"205","Ottawa","ON","Canada","North America",45.4208777,-75.6901106
-"206","Charlottesville","VA","United States","North America",38.029306,-78.4766781
-"207","Tampa","FL","United States","North America",27.9477595,-82.458444
-"208","Ft. Lauderdale","FL","United States","North America",26.1223084,-80.1433786
-"209","Dublin","","Ireland","Europe",53.3493795,-6.2605593
-"210","Pori","","Finland","Europe",61.4865542,21.7968951
-"211","Hultsfred","","Sweden","Europe",57.4,15.8
-"212","Nîmes","","France","Europe",43.8374249,4.3600687
-"213","Nijmegen","","Netherlands","Europe",51.84257485,5.83896062874823
-"214","Oberhausen","","Germany","Europe",51.4696137,6.8514435
-"215","Frankfurt","","Germany","Europe",50.1106444,8.6820917
-"216","Rotterdam","","Netherlands","Europe",51.9244424,4.47775
-"217","Newcastle","","England","Europe",54.9738474,-1.6131572
-"218","Sheffield","","England","Europe",53.3806626,-1.4702278
-"219","Nottingham","","England","Europe",52.9534193,-1.1496461
-"220","Newark","NJ","United States","North America",40.735657,-74.1723667
-"221","Ontario","CA","United States","North America",34.065846,-117.6484304
-"222","Calgary","AB","Canada","North America",51.0456064,-114.057541
-"223","Moline","IL","United States","North America",41.5058344,-90.5136642
-"224","Omaha","NE","United States","North America",41.2587459,-95.9383758
-"225","Des Moines","IA","United States","North America",41.5910323,-93.6046655
-"226","Albuquerque","NM","United States","North America",35.0841034,-106.650985
-"227","Glendale","AZ","United States","North America",33.5386858,-112.185994
-"228","Saint-Denis","","France","Europe",48.935773,2.3580232
-"229","Hasselt","","Belgium","Europe",50.9303735,5.3378043
-"230","Arras","","France","Europe",50.291048,2.7772211
-"231","St. Petersburg","","Russia","Europe",59.938732,30.316229
-"232","Manchester","TN","United States","North America",35.4817432,-86.0885993
-"233","Chorzów","","Poland","Europe",50.2978791,18.9544466
-"234","Irvine","CA","United States","North America",33.6856969,-117.8259819
-"235","Tucson","AZ","United States","North America",32.2228765,-110.974847
-"236","Aarhus","","Denmark","Europe",56.1496278,10.2134046
-"237","Imola","","Italy","Europe",44.3535145,11.7141233
-"238","Arnhem","","Netherlands","Europe",52.0056642,5.87623450776413
-"239","Durban","","South Africa","Africa",-29.861825,31.009909
-"240","Centurion","","South Africa","Africa",-25.836389,28.180278
-"241","Park City","UT","United States","North America",40.6460921,-111.4979963
-"242","Pensacola","FL","United States","North America",30.421309,-87.2169149
-"243","Jacksonville","FL","United States","North America",30.3321838,-81.655651
-"244","London","ON","Canada","North America",42.9832406,-81.243372
-"245","Hamilton","ON","Canada","North America",43.2560802,-79.8728583
-"246","Green Bay","WI","United States","North America",44.5126379,-88.0125794
-"247","Ames","IA","United States","North America",42.0267567,-93.6170448
-"248","Fort Wayne","IN","United States","North America",41.0799898,-85.1386015
-"249","Peoria","IL","United States","North America",40.6938609,-89.5891008
-"250","Fargo","ND","United States","North America",46.877229,-96.789821
-"251","St. Paul","MN","United States","North America",44.9497487,-93.0931028
-"252","Reykjavik","","Iceland","Europe",64.145981,-21.9422367
-"253","Padova","","Italy","Europe",45.4077172,11.8734455
-"254","Zaragoza","","Spain","Europe",41.6521342,-0.8809428
-"255","Bremen","","Germany","Europe",53.0758196,8.8071646
-"256","Ludwigshafen am Rhein","","Germany","Europe",49.4704113,8.4381568
-"257","Oklahoma City","OK","United States","North America",35.4729886,-97.5170536
-"258","Norfolk","VA","United States","North America",36.8448348,-76.2863999
-"259","Roanoke","VA","United States","North America",37.270973,-79.9414313
-"260","Casper","WY","United States","North America",42.8501191,-106.325138
-"261","Reno","NV","United States","North America",39.5261206,-119.8126581
-"262","Gold Coast","","Australia","Oceania",-28.0023731,153.4145987
-"263","Erfurt","","Germany","Europe",50.9777974,11.0287364
-"264","Hanover","","Germany","Europe",52.3744779,9.7385532
-"265","Nagoya","","Japan","Asia",35.1851045,136.8998438
-"266","Saitama","","Japan","Asia",35.8616402,139.6457957
-"267","Sapporo","","Japan","Asia",43.061936,141.3542924
-"268","Gräfenhainichen","","Germany","Europe",51.7309112,12.4588675
-"269","Konstanz","","Germany","Europe",47.659216,9.1750718
-"270","Salzburg","","Austria","Europe",47.7981346,13.0464806
-"271","Landover","MD","United States","North America",38.9340002,-76.8966397
-"272","Universal City","CA","United States","North America",34.1419417,-118.358445
-"273","San Quentin","CA","United States","North America",37.9413133,-122.4849739
-"274","Lexington","KY","United States","North America",38.0464066,-84.4970393
-"275","West Hollywood","CA","United States","North America",34.0923014,-118.3692894
-"276","Sparta","KY","United States","North America",38.6880765,-84.8988043976766
-"277","Rockingham","NC","United States","North America",34.9393201,-79.7739457
-"278","Culver City","CA","United States","North America",34.0211224,-118.396466
-"279","St. Petersburg","FL","United States","North America",27.7700475,-82.6359078
-"280","Rome","NY","United States","North America",43.2128473,-75.4557304
-"281","Vigo","","Spain","Europe",42.1964491,-8.7117809
-"282","Gijón","","Spain","Europe",43.5449422,-5.66275
-"283","Milton Keynes","","England","Europe",52.0406502,-0.7594092
-"284","Belfort","","France","Europe",47.6379599,6.8628942
-"285","Turku","","Finland","Europe",60.4517531,22.2670522
-"286","Kiev","","Ukraine","Europe",50.4500336,30.5241361
-"287","Minden","","Germany","Europe",49.823792,6.4688309
-"288","St. Gallen","","Switzerland","Europe",47.425618,9.3762397
-"289","Plovdiv","","Bulgaria","Europe",42.1418541,24.7499297
-"290","Ljubljana","","Slovenia","Europe",46.0500268,14.5069289
-"291","Eindhoven","","Netherlands","Europe",51.44855695,5.45012252185714
-"292","Anchorage","AK","United States","North America",61.2163129,-149.894852
-"293","Honolulu","HI","United States","North America",21.304547,-157.855676
-"294","George","WA","United States","North America",47.0807166,-119.85709
-"295","Kansas City","KS","United States","North America",39.1134562,-94.626497
-"296","Hartford","CT","United States","North America",41.764582,-72.6908547
-"297","Mansfield","MA","United States","North America",42.0334326,-71.2189405
-"298","Camden","NJ","United States","North America",39.9448402,-75.1198911
-"299","Darien Center","NY","United States","North America",42.9011709,-78.3886312
-"300","Cuyahoga Falls","OH","United States","North America",41.1362729,-81.4828123
-"301","Pecatonica","IL","United States","North America",42.3138917,-89.3593778
-"302","Columbia","MD","United States","North America",39.2156213,-76.8582049
-"303","Virginia Beach","VA","United States","North America",36.8529841,-75.9774183
-"304","Bristow","VA","United States","North America",38.7233263,-77.5365669
-"305","West Palm Beach","FL","United States","North America",26.715364,-80.0532942
-"306","Fukuoka","","Japan","Asia",33.5898988,130.4017509
-"307","Hiroshima","","Japan","Asia",34.3917241,132.4517589
-"308","Yokohama","","Japan","Asia",35.4443947,139.6367727
-"309","Wellington","","New Zealand","Oceania",-41.2887953,174.7772114
-"310","Newcastle","","Australia","Oceania",-32.9192953,151.7795348
-"311","Fort Worth","TX","United States","North America",32.753177,-97.3327459
-"312","Lafayette","LA","United States","North America",30.2262187,-92.0178202
-"313","Biloxi","MS","United States","North America",30.4007626,-88.8893818
-"314","Greensboro","NC","United States","North America",36.0726355,-79.7919754
-"315","Providence","RI","United States","North America",41.8239891,-71.4128343
-"316","Hampton","VA","United States","North America",37.0300969,-76.3452057
-"317","University Park","PA","United States","North America",34.7406465,-86.6230495
-"318","Worcester","MA","United States","North America",42.2625621,-71.8018877
-"319","Memphis","TN","United States","North America",35.1460249,-90.0517638
-"320","Las Cruces","NM","United States","North America",32.3140354,-106.779807
-"321","Utrecht","","Netherlands","Europe",52.0907006,5.1215634
-"322","Bielefeld","","Germany","Europe",52.0191005,8.531007
-"323","Oldenburg","","Germany","Europe",53.1389753,8.2146017
-"324","Dortmund","","Germany","Europe",51.5142273,7.4652789
-"325","Cardiff","","Wales","Europe",51.4816546,-3.1791934
-"326","Marseille","","France","Europe",43.2961743,5.3699525
-"327","San Sebastian","","Spain","Europe",43.3224219,-1.9838889
-"328","Ghent","","Belgium","Europe",51.0538286,3.7250121
-"329","Kiel","","Germany","Europe",54.3227085,10.135555
-"330","Brunssum","","Netherlands","Europe",50.9431108,5.9705675
-"331","Katowice","","Poland","Europe",50.2598987,19.0215852
-"332","Knoxville","TN","United States","North America",35.9603948,-83.9210261
-"333","Charles Town","WV","United States","North America",39.2891836,-77.859581
-"334","Syracuse","NY","United States","North America",43.0481221,-76.1474244
-"335","Pownal","VT","United States","North America",42.7659465,-73.2360643
-"336","Barrie","ON","Canada","North America",44.3893208,-79.6901302
-"337","Aberdeen","WA","United States","North America",46.975371,-123.815722
-"338","Tuktoyaktuk","NT","Canada","North America",69.4440189,-133.031904
-"339","Saugerties","NY","United States","North America",42.0775906,-73.9529126
-"340","Carson","CA","United States","North America",33.8322043,-118.2517547
-"341","San Bernardino","CA","United States","North America",34.1081621,-117.28946
-"342","Somerset","WI","United States","North America",45.1244108,-92.6735365
-"343","Ionia","MI","United States","North America",42.9872547,-85.0711174
-"344","Middletown","NY","United States","North America",41.45011,-74.4164807
-"345","Mechanicsburg","PA","United States","North America",40.2101972,-77.0047276
-"346","Swanzey","NH","United States","North America",42.8742651,-72.2815335
-"347","Essex Junction","VT","United States","North America",44.4906817,-73.11136
-"348","Long Island","NY","United States","North America",40.85149705,-73.0994258107431
-"349","Allentown","PA","United States","North America",40.6022059,-75.4712794
-"350","Holmdel","NJ","United States","North America",40.3451095,-74.1840322
-"351","Torhout","","Belgium","Europe",51.0647837,3.1016415
-"352","Bratislava","","Slovakia","Europe",48.15926025,17.1396586914217
-"353","Brno","","Czech Republic","Europe",49.1922443,16.6113382
-"354","Düsseldorf","","Germany","Europe",51.2254018,6.7763137
-"355","Manila","","Philippines","Asia",14.5906346,120.9799964
-"356","Bangkok","","Thailand","Asia",13.7524938,100.4935089
-"357","Tallahassee","FL","United States","North America",30.4380832,-84.2809332
-"358","Fort Myers","FL","United States","North America",26.640628,-81.8723084
-"359","North Charleston","SC","United States","North America",32.8546197,-79.9748103
-"360","Amherst","MA","United States","North America",42.3731948,-72.5198761
-"361","Moncton","NB","Canada","North America",46.097995,-64.80011
-"362","Greenville","SC","United States","North America",34.851354,-82.3984882
-"363","Johnson City","TN","United States","North America",36.3134398,-82.3534728
-"364","Dayton","OH","United States","North America",39.7589478,-84.1916069
-"365","Saginaw","MI","United States","North America",43.4200387,-83.9490365
-"366","Rockford","IL","United States","North America",42.2713945,-89.093966
-"367","La Crosse","WI","United States","North America",43.8122836,-91.2514355
-"368","Iowa City","IA","United States","North America",41.6612561,-91.5299106
-"369","Hershey","PA","United States","North America",40.2854881,-76.6506001
-"370","Toledo","OH","United States","North America",41.6529143,-83.5378173
-"371","Kalamazoo","MI","United States","North America",42.291707,-85.5872286
-"372","Den Bosch","","Netherlands","Europe",51.6889387,5.303116
-"373","Whitley Bay","","England","Europe",55.0422091,-1.4454353
-"374","Columbia","SC","United States","North America",34.0003117,-81.0331309
-"375","Weedsport","NY","United States","North America",43.048677,-76.5627197
-"376","Tinley Park","IL","United States","North America",41.5733669,-87.7844944
-"377","Charlevoix","MI","United States","North America",45.317649,-85.258348
-"378","Jackson","MS","United States","North America",32.2998686,-90.1830408
-"379","Baton Rouge","LA","United States","North America",30.4494155,-91.1869659
-"380","Mobile","AL","United States","North America",30.6913462,-88.0437509
-"381","Billings","MT","United States","North America",45.7874957,-108.49607
-"382","Rapid City","SD","United States","North America",44.0806041,-103.228023
-"383","Pullman","WA","United States","North America",46.7304268,-117.173895
-"384","Rochester","NY","United States","North America",43.157285,-77.615214
-"385","Binghamton","NY","United States","North America",42.098698,-75.9125187
-"386","Richmond","VA","United States","North America",37.5385087,-77.43428
-"387","Charleston","WV","United States","North America",38.3505995,-81.6332812
-"388","Huntsville","AL","United States","North America",34.729847,-86.5859011
-"389","Chattanooga","TN","United States","North America",35.0457219,-85.3094883
-"390","Evansville","IN","United States","North America",37.970495,-87.5715641
-"391","Champaign","IL","United States","North America",40.1164841,-88.2430932
-"392","Carbondale","IL","United States","North America",37.7274692,-89.216655
-"393","Portland","ME","United States","North America",43.6589742,-70.2569578
-"394","Odessa","TX","United States","North America",31.8457149,-102.367687
-"395","Shreveport","LA","United States","North America",32.5135356,-93.7477839
-"396","Richfield","OH","United States","North America",41.2397772,-81.6381785
-"397","Cedar Rapids","IA","United States","North America",41.9758872,-91.6704053
-"398","Duluth","MN","United States","North America",46.7729322,-92.1251218
-"399","Muskegon","MI","United States","North America",43.2341813,-86.2483921
-"400","Modena","","Italy","Europe",44.6458885,10.9255707
-"401","Graz","","Austria","Europe",47.0708678,15.4382786
-"402","Mainz","","Germany","Europe",50.0012314,8.2762513
-"403","Petaluma","CA","United States","North America",38.295411,-122.613693502033
-"404","Leiden","","Netherlands","Europe",52.1594747,4.4908843
-"405","Zwolle","","Netherlands","Europe",52.51456525,6.09772035967769
-"406","Concord","CA","United States","North America",37.9768525,-122.0335624
-"407","Newark","DE","United States","North America",39.6828358,-75.7515682
-"408","Burlington","VT","United States","North America",44.4761601,-73.212906
-"409","Bristol","CT","United States","North America",41.6735209,-72.9464859
-"410","Manchester","NH","United States","North America",42.9956397,-71.4547891
-"411","Harrisburg","PA","United States","North America",40.2663107,-76.8861122
-"412","Hoffman Estates","IL","United States","North America",42.0427256,-88.0792782
-"413","Mears","MI","United States","North America",43.6819514,-86.4197997
-"414","East Troy","WI","United States","North America",42.7851871,-88.4054374
-"415","Springfield","IL","United States","North America",39.7990175,-89.6439575
-"416","Bismarck","ND","United States","North America",46.808327,-100.783739
-"417","Minot","ND","United States","North America",48.23251,-101.296273
-"418","Kawasaki","","Japan","Asia",35.5305307,139.7028012
-"419","Battle Creek","MI","United States","North America",42.3192548,-85.1824269
-"420","Chicoutimi","QC","Canada","North America",48.3370248,-71.1235261355927
-"421","Sydney","NS","Canada","North America",46.137977,-60.194092
-"422","Troy","NY","United States","North America",42.7284117,-73.6917878
-"423","Bethlehem","PA","United States","North America",40.6178915,-75.3786521
-"424","Savannah","GA","United States","North America",32.0790074,-81.0921335
-"425","Fayetteville","NC","United States","North America",35.0525759,-78.878292
-"426","Ft. Myers","FL","United States","North America",26.640628,-81.8723084
-"427","Lakeland","FL","United States","North America",28.0394654,-81.9498042
-"428","Abilene","TX","United States","North America",32.44645,-99.7475905
-"429","Corpus Christi","TX","United States","North America",27.7635302,-97.4033191
-"430","Beaumont","TX","United States","North America",30.0860459,-94.1018461
-"431","Amarillo","TX","United States","North America",35.2072185,-101.833824
-"432","Waco","TX","United States","North America",31.5491899,-97.1474628
-"433","Long Beach","CA","United States","North America",33.7690164,-118.191604
-"434","Regensburg","","Germany","Europe",49.0195333,12.0974869
-"435","Eppelheim","","Germany","Europe",49.4025,8.63306
-"436","Würzburg","","Germany","Europe",49.79245,9.932966
-"437","Saarbrücken","","Germany","Europe",49.234362,6.996379
-"438","Lillestrom","","Norway","Europe",59.9559239,11.0491122
-"439","Newport","","Wales","Europe",41.4899827,-71.3137707
-"440","Bradford","","England","Europe",53.7944229,-1.7519186
-"441","Edinburgh","","Scotland","Europe",55.9533456,-3.1883749
-"442","Montpellier","","France","Europe",43.6112422,3.8767337
-"443","Toulon","","France","Europe",43.1257311,5.9304919
-"444","Pamplona","","Spain","Europe",42.8181992,-1.6440089
-"445","Bern","","Switzerland","Europe",46.9484742,7.4521749
-"446","Padua","","Italy","Europe",45.4077172,11.8734455
-"447","Akron","OH","United States","North America",41.083064,-81.518485
-"448","Pforzheim","","Germany","Europe",48.8908846,8.7029532
-"449","Clermont-Ferrand","","France","Europe",45.7774551,3.0819427
-"450","Strasbourg","","France","Europe",48.584614,7.7507127
-"451","Neunkirchen am Brand","","Germany","Europe",49.6126495,11.1300058
-"452","Offenbach am Main","","Germany","Europe",50.1055002,8.7610698
-"453","Essen","","Germany","Europe",51.4582235,7.0158171
-"454","Böblingen","","Germany","Europe",48.684969,9.0113444
-"455","Nice","","France","Europe",43.7009358,7.2683912
-"456","Bordeaux","","France","Europe",44.841225,-0.5800364
-"457","Osnabrück","","Germany","Europe",52.2719595,8.047635
-"458","Holstebro","","Denmark","Europe",56.3590324,8.6159188
-"459","Regina","SK","Canada","North America",50.44876,-104.61731
-"460","Greater Sudbury","ON","Canada","North America",46.49272,-80.991211
-"461","Victoriaville","QC","Canada","North America",46.0554948,-71.9598586
-"462","Rimouski","QC","Canada","North America",48.450155,-68.529968
-"463","West Hartford","CT","United States","North America",41.7620447,-72.7420399
-"464","Passaic","NJ","United States","North America",40.8567663,-74.1284764
-"465","Poughkeepsie","NY","United States","North America",41.7065539,-73.9283672
-"466","Reseda","CA","United States","North America",34.2006552,-118.536528
-"467","Genk","","Belgium","Europe",50.9654864,5.5001456
-"468","Toulouse","","France","Europe",43.6044622,1.4442469
-"469","Lund","","Sweden","Europe",55.7029296,13.1929449
-"470","Pihtipudas","","Finland","Europe",63.3706192,25.5754689
-"471","Central Point","OR","United States","North America",42.376782,-122.912721
-"472","McAllen","TX","United States","North America",26.204114,-98.2300605
-"473","Decatur","IL","United States","North America",39.8454163,-88.9524151
-"474","Davenport","IA","United States","North America",41.5235808,-90.5770967
-"475","Eau Claire","WI","United States","North America",44.811349,-91.4984941
-"476","Cape Girardeau","MO","United States","North America",37.3034933,-89.5230357
-"477","Glens Falls","NY","United States","North America",43.309941,-73.644447
-"478","New Haven","CT","United States","North America",41.3082138,-72.9250518
-"479","Johnstown","PA","United States","North America",40.3267407,-78.9219698
-"480","Erie","PA","United States","North America",42.1294712,-80.0852695
-"481","St. Goarshausen","","Germany","Europe",50.1548796,7.7160976
-"482","Palo Alto","CA","United States","North America",37.4443293,-122.1598465
-"483","Colorado Springs","CO","United States","North America",38.8339578,-104.825348
-"484","Pasadena","TX","United States","North America",29.6910753,-95.2092076
-"485","St. Peters","MO","United States","North America",38.791612,-90.5958468
-"486","Burlington","IA","United States","North America",40.8126922,-91.1020205
-"487","Royal Oak","MI","United States","North America",42.4894801,-83.1446485
-"488","Brooklyn","NY","United States","North America",40.6526006,-73.9497211
-"489","Scranton","PA","United States","North America",41.4086874,-75.6621294
-"490","Scotia","NY","United States","North America",42.8264652,-73.9642915
-"491","Nivala","","Finland","Europe",63.9289531,24.9612586
-"492","Tarvasjoki","","Finland","Europe",60.57848815,22.7074971995799
-"493","Sindelfingen","","Germany","Europe",48.7084162,9.0035455
-"494","Marseilles","","France","Europe",47.0706778,3.0029271
-"495","Poperinge","","Belgium","Europe",50.8556646,2.7264961
-"496","Rouen","","France","Europe",49.4404591,1.0939658
-"497","Le Bourget","","France","Europe",48.9351403,2.4258354
-"498","De Westereen","","Netherlands","Europe",53.2564712,6.0388695
-"499","Oldenzaal","","Netherlands","Europe",52.30853685,6.91460374312224
-"500","Ayr","","Scotland","Europe",55.4628044,-4.6302502
-"501","Blackburn","","England","Europe",53.749326,-2.4840566
-"502","Dunstable","","England","Europe",51.8861316,-0.5209341
-"503","Hanley","","England","Europe",53.0259916,-2.1753695
-"504","Valley Stream","NY","United States","North America",40.6631362,-73.7056955
-"505","South River","NJ","United States","North America",40.446495,-74.3859831
-"506","Port Jervis","NY","United States","North America",41.3750937,-74.692663
-"507","Mount Vernon","NY","United States","North America",40.9125085,-73.8386504
-"508","Aberdeen Township","NJ","United States","North America",40.4071138,-74.2216287
-"509","Bellevue","WA","United States","North America",47.6144219,-122.192337
-"510","Portales","NM","United States","North America",34.1861922,-103.334397
-"511","Tyler","TX","United States","North America",32.3512601,-95.3010624
-"512","Roland","OK","United States","North America",35.4212021,-94.5146616
-"513","Texarkana","TX","United States","North America",33.44667445,-94.0771483052201
-"514","Russellville","AR","United States","North America",35.2784173,-93.1337856
-"515","Pine Bluff","AR","United States","North America",34.2157064,-92.0140402
-"516","Bald Knob","AR","United States","North America",35.3098066,-91.5679114
-"517","Essex","MD","United States","North America",39.3075071,-76.4790355
-"518","Morganville","NJ","United States","North America",40.3764975,-74.2443117
-"519","Babylon","NY","United States","North America",40.6956552,-73.3256753
-"520","Queens","NY","United States","North America",40.7135078,-73.8283132
-"521","Jamestown","NY","United States","North America",42.0965167,-79.2380322
-"522","Yonkers","NY","United States","North America",40.9312099,-73.8987469
-"523","Bridgeport","CT","United States","North America",41.1670412,-73.2048348
-"524","North Brunswick Township","NJ","United States","North America",40.44560135,-74.4892960003844
-"525","Sayreville","NJ","United States","North America",40.4635362,-74.3618499
-"526","Pasadena","MD","United States","North America",39.1361859,-76.5490844
-"527","Staten Island","NY","United States","North America",40.5834557,-74.1496048
-"528","Dover","NJ","United States","North America",40.883988,-74.5621025
-"529","Fullerton","CA","United States","North America",33.8708215,-117.9294165
-"530","Dana Point","CA","United States","North America",33.4669721,-117.6981075
-"531","Huntington Beach","CA","United States","North America",33.6783336,-118.0000166
-"532","Costa Mesa","CA","United States","North America",33.6633386,-117.903317
+"1","Aarhus","","Denmark","Europe",56.1496278,10.2134046
+"2","Aberdeen","WA","United States","North America",46.975371,-123.815722
+"3","Aberdeen Township","NJ","United States","North America",40.4071138,-74.2216287
+"4","Abilene","TX","United States","North America",32.44645,-99.7475905
+"5","Abu Dhabi","","United Arab Emirates","Asia",24.4538352,54.3774014
+"6","Adelaide","","Australia","Oceania",-34.9281805,138.5999312
+"7","Akron","OH","United States","North America",41.083064,-81.518485
+"8","Albany","NY","United States","North America",42.6511674,-73.754968
+"9","Albuquerque","NM","United States","North America",35.0841034,-106.650985
+"10","Allentown","PA","United States","North America",40.6022059,-75.4712794
+"11","Amarillo","TX","United States","North America",35.2072185,-101.833824
+"12","Ames","IA","United States","North America",42.0267567,-93.6170448
+"13","Amherst","MA","United States","North America",42.3731948,-72.5198761
+"14","Amnéville","","France","Europe",49.2603613,6.1420739
+"15","Amsterdam","","Netherlands","Europe",52.3730796,4.8924534
+"16","Anaheim","CA","United States","North America",33.8347516,-117.911732
+"17","Anchorage","AK","United States","North America",61.2163129,-149.894852
+"18","Antwerp","","Belgium","Europe",51.2211097,4.3997081
+"19","Arlington","TX","United States","North America",32.7355816,-97.1071186
+"20","Arnhem","","Netherlands","Europe",52.0056642,5.87623450776413
+"21","Arras","","France","Europe",50.291048,2.7772211
+"22","Assago","","Italy","Europe",45.4053966,9.1313547
+"23","Asunción","","Paraguay","South America",-25.2800459,-57.6343814
+"24","Athens","","Greece","Europe",37.9755648,23.7348324
+"25","Atlanta","GA","United States","North America",33.7489924,-84.3902644
+"26","Atlantic City","NJ","United States","North America",39.3642852,-74.4229351
+"27","Auckland","","New Zealand","Oceania",-36.852095,174.7631803
+"28","Austin","TX","United States","North America",30.2711286,-97.7436995
+"29","Ayr","","Scotland","Europe",55.4628044,-4.6302502
+"30","Babylon","NY","United States","North America",40.6956552,-73.3256753
+"31","Bald Knob","AR","United States","North America",35.3098066,-91.5679114
+"32","Baltimore","MD","United States","North America",39.2908816,-76.610759
+"33","Bangalore","","India","Asia",12.9767936,77.590082
+"34","Bangkok","","Thailand","Asia",13.7524938,100.4935089
+"35","Barcelona","","Spain","Europe",41.3828939,2.1774322
+"36","Barrie","ON","Canada","North America",44.3893208,-79.6901302
+"37","Basel","","Switzerland","Europe",47.5581077,7.5878261
+"38","Baton Rouge","LA","United States","North America",30.4494155,-91.1869659
+"39","Battle Creek","MI","United States","North America",42.3192548,-85.1824269
+"40","Bay Area","CA","United States","North America",37.7884969,-122.3558473
+"41","Beaumont","TX","United States","North America",30.0860459,-94.1018461
+"42","Beijing","","China","Asia",39.9057136,116.3912972
+"43","Belfast","","Northern Ireland","Europe",54.596391,-5.9301829
+"44","Belfort","","France","Europe",47.6379599,6.8628942
+"45","Belgrade","","Serbia","Europe",44.8178131,20.4568974
+"46","Bellevue","WA","United States","North America",47.6144219,-122.192337
+"47","Belo Horizonte","","Brazil","South America",-19.9227318,-43.9450948
+"48","Bergen","","Norway","Europe",60.3943055,5.3259192
+"49","Berkeley","CA","United States","North America",37.8708393,-122.272863
+"50","Berlin","","Germany","Europe",52.5170365,13.3888599
+"51","Bern","","Switzerland","Europe",46.9484742,7.4521749
+"52","Bethlehem","PA","United States","North America",40.6178915,-75.3786521
+"53","Bielefeld","","Germany","Europe",52.0191005,8.531007
+"54","Bilbao","","Spain","Europe",43.2630018,-2.9350039
+"55","Billings","MT","United States","North America",45.7874957,-108.49607
+"56","Biloxi","MS","United States","North America",30.4007626,-88.8893818
+"57","Binghamton","NY","United States","North America",42.098698,-75.9125187
+"58","Birmingham","","England","Europe",52.4796992,-1.9026911
+"59","Birmingham","AL","United States","North America",33.5206824,-86.8024326
+"60","Bismarck","ND","United States","North America",46.808327,-100.783739
+"61","Blackburn","","England","Europe",53.749326,-2.4840566
+"62","Bogotá","","Colombia","South America",4.6529539,-74.0835643
+"63","Boise","ID","United States","North America",43.6166163,-116.200886
+"64","Bologna","","Italy","Europe",44.4938203,11.3426327
+"65","Bordeaux","","France","Europe",44.841225,-0.5800364
+"66","Boston","MA","United States","North America",42.3554334,-71.060511
+"67","Bradford","","England","Europe",53.7944229,-1.7519186
+"68","Bratislava","","Slovakia","Europe",48.15926025,17.1396586914217
+"69","Bremen","","Germany","Europe",53.0758196,8.8071646
+"70","Bridgeport","CT","United States","North America",41.1670412,-73.2048348
+"71","Brisbane","","Australia","Oceania",-27.4689682,153.0234991
+"72","Bristol","CT","United States","North America",41.6735209,-72.9464859
+"73","Bristow","VA","United States","North America",38.7233263,-77.5365669
+"74","Brno","","Czech Republic","Europe",49.1922443,16.6113382
+"75","Brooklyn","NY","United States","North America",40.6526006,-73.9497211
+"76","Brunssum","","Netherlands","Europe",50.9431108,5.9705675
+"77","Brussels","","Belgium","Europe",50.8550018,4.35123337611662
+"78","Bucharest","","Romania","Europe",44.4361414,26.1027202
+"79","Budapest","","Hungary","Europe",47.4978918,19.0401609
+"80","Buenos Aires","","Argentina","South America",-34.6075682,-58.4370894
+"81","Buffalo","NY","United States","North America",42.8867166,-78.8783922
+"82","Burlington","IA","United States","North America",40.8126922,-91.1020205
+"83","Burlington","VT","United States","North America",44.4761601,-73.212906
+"84","Böblingen","","Germany","Europe",48.684969,9.0113444
+"85","Calgary","AB","Canada","North America",51.0456064,-114.057541
+"86","Camden","NJ","United States","North America",39.9448402,-75.1198911
+"87","Cape Girardeau","MO","United States","North America",37.3034933,-89.5230357
+"88","Cape Town","","South Africa","Africa",-33.928992,18.417396
+"89","Caracas","","Venezuela","South America",10.5060934,-66.9146008
+"90","Carbondale","IL","United States","North America",37.7274692,-89.216655
+"91","Cardiff","","Wales","Europe",51.4816546,-3.1791934
+"92","Carson","CA","United States","North America",33.8322043,-118.2517547
+"93","Casper","WY","United States","North America",42.8501191,-106.325138
+"94","Castle Donington","","England","Europe",52.8411689,-1.3409476
+"95","Cedar Rapids","IA","United States","North America",41.9758872,-91.6704053
+"96","Central Point","OR","United States","North America",42.376782,-122.912721
+"97","Centurion","","South Africa","Africa",-25.836389,28.180278
+"98","Champaign","IL","United States","North America",40.1164841,-88.2430932
+"99","Charles Town","WV","United States","North America",39.2891836,-77.859581
+"100","Charleston","WV","United States","North America",38.3505995,-81.6332812
+"101","Charlevoix","MI","United States","North America",45.317649,-85.258348
+"102","Charlotte","NC","United States","North America",35.2272086,-80.8430827
+"103","Charlottesville","VA","United States","North America",38.029306,-78.4766781
+"104","Chattanooga","TN","United States","North America",35.0457219,-85.3094883
+"105","Chek Lap Kok","","Hong Kong","Asia",22.3125477,113.918404507739
+"106","Chicago","IL","United States","North America",41.8755616,-87.6244212
+"107","Chicoutimi","QC","Canada","North America",48.3370248,-71.1235261355927
+"108","Chorzów","","Poland","Europe",50.2978791,18.9544466
+"109","Christchurch","","New Zealand","Oceania",-43.530955,172.6364343
+"110","Cincinnati","OH","United States","North America",39.1014537,-84.5124602
+"111","Clermont-Ferrand","","France","Europe",45.7774551,3.0819427
+"112","Cleveland","OH","United States","North America",41.4996574,-81.6936772
+"113","Clisson","","France","Europe",47.0877218,-1.2817422
+"114","Cologne","","Germany","Europe",50.938361,6.959974
+"115","Colorado Springs","CO","United States","North America",38.8339578,-104.825348
+"116","Columbia","MD","United States","North America",39.2156213,-76.8582049
+"117","Columbia","SC","United States","North America",34.0003117,-81.0331309
+"118","Columbus","OH","United States","North America",39.9622601,-83.0007065
+"119","Concord","CA","United States","North America",37.9768525,-122.0335624
+"120","Copenhagen","","Denmark","Europe",55.6867243,12.5700724
+"121","Corpus Christi","TX","United States","North America",27.7635302,-97.4033191
+"122","Costa Mesa","CA","United States","North America",33.6633386,-117.903317
+"123","Culver City","CA","United States","North America",34.0211224,-118.396466
+"124","Curitiba","","Brazil","South America",-25.4295963,-49.2712724
+"125","Cuyahoga Falls","OH","United States","North America",41.1362729,-81.4828123
+"126","Córdoba","","Argentina","South America",-31.4166867,-64.1834193
+"127","Dallas","TX","United States","North America",32.7762719,-96.7968559
+"128","Dana Point","CA","United States","North America",33.4669721,-117.6981075
+"129","Darien Center","NY","United States","North America",42.9011709,-78.3886312
+"130","Davenport","IA","United States","North America",41.5235808,-90.5770967
+"131","Dayton","OH","United States","North America",39.7589478,-84.1916069
+"132","Daytona Beach","FL","United States","North America",29.2108147,-81.0228331
+"133","De Westereen","","Netherlands","Europe",53.2564712,6.0388695
+"134","Decatur","IL","United States","North America",39.8454163,-88.9524151
+"135","Delhi","","India","Asia",24.6399612,81.5737895575531
+"136","Den Bosch","","Netherlands","Europe",51.6889387,5.303116
+"137","Denver","CO","United States","North America",39.7392364,-104.984862
+"138","Des Moines","IA","United States","North America",41.5910323,-93.6046655
+"139","Detroit","MI","United States","North America",42.3315509,-83.0466403
+"140","Dortmund","","Germany","Europe",51.5142273,7.4652789
+"141","Dover","NJ","United States","North America",40.883988,-74.5621025
+"142","Dublin","","Ireland","Europe",53.3493795,-6.2605593
+"143","Duluth","MN","United States","North America",46.7729322,-92.1251218
+"144","Dunstable","","England","Europe",51.8861316,-0.5209341
+"145","Durban","","South Africa","Africa",-29.861825,31.009909
+"146","Düsseldorf","","Germany","Europe",51.2254018,6.7763137
+"147","East Rutherford","NJ","United States","North America",40.833989,-74.0970865
+"148","East Troy","WI","United States","North America",42.7851871,-88.4054374
+"149","Eau Claire","WI","United States","North America",44.811349,-91.4984941
+"150","Edinburgh","","Scotland","Europe",55.9533456,-3.1883749
+"151","Edmonton","AB","Canada","North America",53.5462055,-113.491241
+"152","Eindhoven","","Netherlands","Europe",51.44855695,5.45012252185714
+"153","El Paso","TX","United States","North America",31.7550511,-106.488234
+"154","Eppelheim","","Germany","Europe",49.4025,8.63306
+"155","Erfurt","","Germany","Europe",50.9777974,11.0287364
+"156","Erie","PA","United States","North America",42.1294712,-80.0852695
+"157","Essen","","Germany","Europe",51.4582235,7.0158171
+"158","Essex","MD","United States","North America",39.3075071,-76.4790355
+"159","Essex Junction","VT","United States","North America",44.4906817,-73.11136
+"160","Evansville","IN","United States","North America",37.970495,-87.5715641
+"161","Fargo","ND","United States","North America",46.877229,-96.789821
+"162","Fayetteville","NC","United States","North America",35.0525759,-78.878292
+"163","Florence","","Italy","Europe",43.7698712,11.2555757
+"164","Fort Myers","FL","United States","North America",26.640628,-81.8723084
+"165","Fort Wayne","IN","United States","North America",41.0799898,-85.1386015
+"166","Fort Worth","TX","United States","North America",32.753177,-97.3327459
+"167","Foxborough","MA","United States","North America",42.0653768,-71.2478308
+"168","Frankfurt","","Germany","Europe",50.1106444,8.6820917
+"169","Frauenfeld","","Switzerland","Europe",47.5561915,8.8963347
+"170","Fresno","CA","United States","North America",36.7295295,-119.708861260756
+"171","Ft. Lauderdale","FL","United States","North America",26.1223084,-80.1433786
+"172","Ft. Myers","FL","United States","North America",26.640628,-81.8723084
+"173","Fukuoka","","Japan","Asia",33.5898988,130.4017509
+"174","Fullerton","CA","United States","North America",33.8708215,-117.9294165
+"175","Gelsenkirchen","","Germany","Europe",51.5110321,7.0960124
+"176","Geneva","","Switzerland","Europe",46.2017559,6.1466014
+"177","Genk","","Belgium","Europe",50.9654864,5.5001456
+"178","George","WA","United States","North America",47.0807166,-119.85709
+"179","Ghent","","Belgium","Europe",51.0538286,3.7250121
+"180","Gijón","","Spain","Europe",43.5449422,-5.66275
+"181","Glasgow","","Scotland","Europe",55.861155,-4.2501687
+"182","Glendale","AZ","United States","North America",33.5386858,-112.185994
+"183","Glens Falls","NY","United States","North America",43.309941,-73.644447
+"184","Gold Coast","","Australia","Oceania",-28.0023731,153.4145987
+"185","Gothenburg","","Sweden","Europe",57.7072326,11.9670171
+"186","Grand Forks","ND","United States","North America",47.9252042,-97.0306741
+"187","Grand Rapids","MI","United States","North America",42.9632425,-85.6678639
+"188","Graz","","Austria","Europe",47.0708678,15.4382786
+"189","Greater Sudbury","ON","Canada","North America",46.49272,-80.991211
+"190","Green Bay","WI","United States","North America",44.5126379,-88.0125794
+"191","Greensboro","NC","United States","North America",36.0726355,-79.7919754
+"192","Greenville","SC","United States","North America",34.851354,-82.3984882
+"193","Gräfenhainichen","","Germany","Europe",51.7309112,12.4588675
+"194","Guadalajara","","Mexico","North America",20.6720375,-103.338396
+"195","Guatemala City","","Guatemala","North America",14.6424667,-90.5131361
+"196","Halifax","NS","Canada","North America",44.648618,-63.5859487
+"197","Hamburg","","Germany","Europe",53.550341,10.000654
+"198","Hamilton","ON","Canada","North America",43.2560802,-79.8728583
+"199","Hampton","VA","United States","North America",37.0300969,-76.3452057
+"200","Hanley","","England","Europe",53.0259916,-2.1753695
+"201","Hanover","","Germany","Europe",52.3744779,9.7385532
+"202","Harrisburg","PA","United States","North America",40.2663107,-76.8861122
+"203","Hartford","CT","United States","North America",41.764582,-72.6908547
+"204","Hasselt","","Belgium","Europe",50.9303735,5.3378043
+"205","Hämeenlinna","","Finland","Europe",60.9948584,24.46654
+"206","Helsinki","","Finland","Europe",60.1674881,24.9427473
+"207","Herning","","Denmark","Europe",56.1379757,8.9746623
+"208","Hershey","PA","United States","North America",40.2854881,-76.6506001
+"209","Hiroshima","","Japan","Asia",34.3917241,132.4517589
+"210","Hockenheim","","Germany","Europe",49.3188892,8.5475467
+"211","Hoffman Estates","IL","United States","North America",42.0427256,-88.0792782
+"212","Hollywood","FL","United States","North America",26.0112014,-80.1494901
+"213","Holmdel","NJ","United States","North America",40.3451095,-74.1840322
+"214","Holstebro","","Denmark","Europe",56.3590324,8.6159188
+"215","Honolulu","HI","United States","North America",21.304547,-157.855676
+"216","Horsens","","Denmark","Europe",55.8611696,9.8444774
+"217","Houston","TX","United States","North America",29.7589382,-95.3676974
+"218","Hultsfred","","Sweden","Europe",57.4,15.8
+"219","Huntington Beach","CA","United States","North America",33.6783336,-118.0000166
+"220","Huntsville","AL","United States","North America",34.729847,-86.5859011
+"221","Imola","","Italy","Europe",44.3535145,11.7141233
+"222","Indianapolis","IN","United States","North America",39.7683331,-86.1583502
+"223","Indio","CA","United States","North America",33.7192808,-116.2188054
+"224","Ionia","MI","United States","North America",42.9872547,-85.0711174
+"225","Iowa City","IA","United States","North America",41.6612561,-91.5299106
+"226","Irvine","CA","United States","North America",33.6856969,-117.8259819
+"227","Istanbul","","Turkey","Asia",41.006381,28.9758715
+"228","Jackson","MS","United States","North America",32.2998686,-90.1830408
+"229","Jacksonville","FL","United States","North America",30.3321838,-81.655651
+"230","Jakarta","","Indonesia","Asia",-6.175247,106.8270488
+"231","Jamestown","NY","United States","North America",42.0965167,-79.2380322
+"232","Johannesburg","","South Africa","Africa",-26.205,28.049722
+"233","Johnson City","TN","United States","North America",36.3134398,-82.3534728
+"234","Johnstown","PA","United States","North America",40.3267407,-78.9219698
+"235","Jonschwil","","Switzerland","Europe",47.4231947,9.0865706
+"236","Kalamazoo","MI","United States","North America",42.291707,-85.5872286
+"237","Kansas City","KS","United States","North America",39.1134562,-94.626497
+"238","Kansas City","MO","United States","North America",39.100105,-94.5781416
+"239","Katowice","","Poland","Europe",50.2598987,19.0215852
+"240","Kawasaki","","Japan","Asia",35.5305307,139.7028012
+"241","Kiel","","Germany","Europe",54.3227085,10.135555
+"242","Kiev","","Ukraine","Europe",50.4500336,30.5241361
+"243","Knebworth","","England","Europe",51.8658893,-0.1844945
+"244","Knoxville","TN","United States","North America",35.9603948,-83.9210261
+"245","Konstanz","","Germany","Europe",47.659216,9.1750718
+"246","Kraków","","Poland","Europe",50.0469432,19.9971534358367
+"247","Kuala Lumpur","","Malaysia","Asia",3.1516964,101.6942371
+"248","La Crosse","WI","United States","North America",43.8122836,-91.2514355
+"249","Lafayette","LA","United States","North America",30.2262187,-92.0178202
+"250","Lakeland","FL","United States","North America",28.0394654,-81.9498042
+"251","Landgraaf","","Netherlands","Europe",50.9080845,6.0264604
+"252","Landover","MD","United States","North America",38.9340002,-76.8966397
+"253","Las Cruces","NM","United States","North America",32.3140354,-106.779807
+"254","Las Vegas","NV","United States","North America",36.1672559,-115.148516
+"255","Le Bourget","","France","Europe",48.9351403,2.4258354
+"256","Leeds","","England","Europe",53.7974185,-1.5437941
+"257","Leiden","","Netherlands","Europe",52.1594747,4.4908843
+"258","Leipzig","","Germany","Europe",51.3406321,12.3747329
+"259","Lexington","KY","United States","North America",38.0464066,-84.4970393
+"260","Lillestrom","","Norway","Europe",59.9559239,11.0491122
+"261","Lima","","Peru","South America",-12.0621065,-77.0365256
+"262","Lincoln","NE","United States","North America",40.8088861,-96.7077751
+"263","Lisbon","","Portugal","Europe",38.7077507,-9.1365919
+"264","Little Rock","AR","United States","North America",34.7465071,-92.2896267
+"265","Ljubljana","","Slovenia","Europe",46.0500268,14.5069289
+"266","London","","England","Europe",51.4893335,-0.144055084527687
+"267","London","ON","Canada","North America",42.9832406,-81.243372
+"268","Long Beach","CA","United States","North America",33.7690164,-118.191604
+"269","Long Island","NY","United States","North America",40.85149705,-73.0994258107431
+"270","Los Angeles","CA","United States","North America",34.0536909,-118.242766
+"271","Louisville","KY","United States","North America",38.2542376,-85.759407
+"272","Lubbock","TX","United States","North America",33.5855677,-101.8470215
+"273","Ludwigshafen am Rhein","","Germany","Europe",49.4704113,8.4381568
+"274","Lund","","Sweden","Europe",55.7029296,13.1929449
+"275","Lyon","","France","Europe",45.7578137,4.8320114
+"276","Madison","WI","United States","North America",43.074761,-89.3837613
+"277","Madrid","","Spain","Europe",40.4167047,-3.7035825
+"278","Mainz","","Germany","Europe",50.0012314,8.2762513
+"279","Manchester","","England","Europe",53.4794892,-2.2451148
+"280","Manchester","NH","United States","North America",42.9956397,-71.4547891
+"281","Manchester","TN","United States","North America",35.4817432,-86.0885993
+"282","Manila","","Philippines","Asia",14.5906346,120.9799964
+"283","Mannheim","","Germany","Europe",49.4892913,8.4673098
+"284","Mansfield","MA","United States","North America",42.0334326,-71.2189405
+"285","Marseille","","France","Europe",43.2961743,5.3699525
+"286","Marseilles","","France","Europe",47.0706778,3.0029271
+"287","McAllen","TX","United States","North America",26.204114,-98.2300605
+"288","Mears","MI","United States","North America",43.6819514,-86.4197997
+"289","Meath","","Ireland","Europe",53.88930485,-6.72546318819054
+"290","Mechanicsburg","PA","United States","North America",40.2101972,-77.0047276
+"291","Melbourne","","Australia","Oceania",-37.8142454,144.9631732
+"292","Memphis","TN","United States","North America",35.1460249,-90.0517638
+"293","Mexico City","","Mexico","North America",19.4326296,-99.1331785
+"294","Miami","FL","United States","North America",25.7741728,-80.19362
+"295","Middletown","NY","United States","North America",41.45011,-74.4164807
+"296","Milan","","Italy","Europe",45.4641943,9.1896346
+"297","Milton Keynes","","England","Europe",52.0406502,-0.7594092
+"298","Milwaukee","WI","United States","North America",43.0349931,-87.922497
+"299","Minden","","Germany","Europe",49.823792,6.4688309
+"300","Minneapolis","MN","United States","North America",44.9772995,-93.2654692
+"301","Minot","ND","United States","North America",48.23251,-101.296273
+"302","Mobile","AL","United States","North America",30.6913462,-88.0437509
+"303","Modena","","Italy","Europe",44.6458885,10.9255707
+"304","Moline","IL","United States","North America",41.5058344,-90.5136642
+"305","Moncton","NB","Canada","North America",46.097995,-64.80011
+"306","Monterrey","","Mexico","North America",25.6802019,-100.315258
+"307","Montpellier","","France","Europe",43.6112422,3.8767337
+"308","Montreal","QC","Canada","North America",45.5031824,-73.5698065
+"309","Morganville","NJ","United States","North America",40.3764975,-74.2443117
+"310","Moscow","","Russia","Europe",55.7505412,37.6174782
+"311","Mount Vernon","NY","United States","North America",40.9125085,-73.8386504
+"312","Mountain View","CA","United States","North America",37.3893889,-122.0832101
+"313","Munich","","Germany","Europe",48.1371079,11.5753822
+"314","Muskegon","MI","United States","North America",43.2341813,-86.2483921
+"315","Nagoya","","Japan","Asia",35.1851045,136.8998438
+"316","Napa","CA","United States","North America",38.2971367,-122.2855293
+"317","Nashville","TN","United States","North America",36.1622767,-86.7742984
+"318","Neunkirchen am Brand","","Germany","Europe",49.6126495,11.1300058
+"319","New Haven","CT","United States","North America",41.3082138,-72.9250518
+"320","New Orleans","LA","United States","North America",29.9759983,-90.0782127
+"321","New York","NY","United States","North America",40.7127281,-74.0060152
+"322","Newark","DE","United States","North America",39.6828358,-75.7515682
+"323","Newark","NJ","United States","North America",40.735657,-74.1723667
+"324","Newcastle","","Australia","Oceania",-32.9192953,151.7795348
+"325","Newcastle","","England","Europe",54.9738474,-1.6131572
+"326","Newport","","Wales","Europe",41.4899827,-71.3137707
+"327","Newton","IA","United States","North America",41.6997139,-93.0538852
+"328","Nice","","France","Europe",43.7009358,7.2683912
+"329","Nickelsdorf","","Austria","Europe",47.9403019,17.0661763
+"330","Nijmegen","","Netherlands","Europe",51.84257485,5.83896062874823
+"331","Nivala","","Finland","Europe",63.9289531,24.9612586
+"332","Norfolk","VA","United States","North America",36.8448348,-76.2863999
+"333","North Brunswick Township","NJ","United States","North America",40.44560135,-74.4892960003844
+"334","North Charleston","SC","United States","North America",32.8546197,-79.9748103
+"335","Nottingham","","England","Europe",52.9534193,-1.1496461
+"336","Nuremberg","","Germany","Europe",49.453872,11.077298
+"337","Nîmes","","France","Europe",43.8374249,4.3600687
+"338","Nürburg","","Germany","Europe",50.3413391,6.9519229
+"339","Oakland","CA","United States","North America",37.8044557,-122.271356
+"340","Oberhausen","","Germany","Europe",51.4696137,6.8514435
+"341","Odessa","TX","United States","North America",31.8457149,-102.367687
+"342","Offenbach am Main","","Germany","Europe",50.1055002,8.7610698
+"343","Oklahoma City","OK","United States","North America",35.4729886,-97.5170536
+"344","Oldenburg","","Germany","Europe",53.1389753,8.2146017
+"345","Oldenzaal","","Netherlands","Europe",52.30853685,6.91460374312224
+"346","Omaha","NE","United States","North America",41.2587459,-95.9383758
+"347","Ontario","CA","United States","North America",34.065846,-117.6484304
+"348","Orlando","FL","United States","North America",28.5421109,-81.3790304
+"349","Osaka","","Japan","Asia",34.6937569,135.5014539
+"350","Oslo","","Norway","Europe",59.9133301,10.7389701
+"351","Osnabrück","","Germany","Europe",52.2719595,8.047635
+"352","Ottawa","ON","Canada","North America",45.4208777,-75.6901106
+"353","Padova","","Italy","Europe",45.4077172,11.8734455
+"354","Padua","","Italy","Europe",45.4077172,11.8734455
+"355","Palo Alto","CA","United States","North America",37.4443293,-122.1598465
+"356","Pamplona","","Spain","Europe",42.8181992,-1.6440089
+"357","Panama City","","Panama","North America",8.9714493,-79.5341802
+"358","Paris","","France","Europe",48.8534951,2.3483915
+"359","Park City","UT","United States","North America",40.6460921,-111.4979963
+"360","Pasadena","CA","United States","North America",34.1476507,-118.1441551
+"361","Pasadena","MD","United States","North America",39.1361859,-76.5490844
+"362","Pasadena","TX","United States","North America",29.6910753,-95.2092076
+"363","Passaic","NJ","United States","North America",40.8567663,-74.1284764
+"364","Pecatonica","IL","United States","North America",42.3138917,-89.3593778
+"365","Pensacola","FL","United States","North America",30.421309,-87.2169149
+"366","Peoria","IL","United States","North America",40.6938609,-89.5891008
+"367","Perth","","Australia","Oceania",-31.9558933,115.8605855
+"368","Petaluma","CA","United States","North America",38.295411,-122.613693502033
+"369","Pforzheim","","Germany","Europe",48.8908846,8.7029532
+"370","Philadelphia","PA","United States","North America",39.9527237,-75.1635262
+"371","Phoenix","AZ","United States","North America",33.4484367,-112.074141
+"372","Pihtipudas","","Finland","Europe",63.3706192,25.5754689
+"373","Pilton","","England","Europe",55.97371,-3.2404424
+"374","Pine Bluff","AR","United States","North America",34.2157064,-92.0140402
+"375","Pittsburgh","PA","United States","North America",40.4416941,-79.9900861
+"376","Plovdiv","","Bulgaria","Europe",42.1418541,24.7499297
+"377","Poperinge","","Belgium","Europe",50.8556646,2.7264961
+"378","Pori","","Finland","Europe",61.4865542,21.7968951
+"379","Port Jervis","NY","United States","North America",41.3750937,-74.692663
+"380","Portales","NM","United States","North America",34.1861922,-103.334397
+"381","Portland","ME","United States","North America",43.6589742,-70.2569578
+"382","Portland","OR","United States","North America",45.5202471,-122.674194
+"383","Porto Alegre","","Brazil","South America",-30.0324999,-51.2303767
+"384","Poughkeepsie","NY","United States","North America",41.7065539,-73.9283672
+"385","Pownal","VT","United States","North America",42.7659465,-73.2360643
+"386","Prague","","Czech Republic","Europe",50.0596288,14.446459273258
+"387","Providence","RI","United States","North America",41.8239891,-71.4128343
+"388","Pullman","WA","United States","North America",46.7304268,-117.173895
+"389","Quebec City","QC","Canada","North America",46.8137431,-71.2084061
+"390","Queens","NY","United States","North America",40.7135078,-73.8283132
+"391","Quito","","Ecuador","South America",-0.2201641,-78.5123274
+"392","Raleigh","NC","United States","North America",35.7803977,-78.6390989
+"393","Rapid City","SD","United States","North America",44.0806041,-103.228023
+"394","Reading","","England","Europe",51.4564242,-0.9700664
+"395","Regensburg","","Germany","Europe",49.0195333,12.0974869
+"396","Regina","SK","Canada","North America",50.44876,-104.61731
+"397","Reno","NV","United States","North America",39.5261206,-119.8126581
+"398","Reseda","CA","United States","North America",34.2006552,-118.536528
+"399","Reykjavik","","Iceland","Europe",64.145981,-21.9422367
+"400","Richfield","OH","United States","North America",41.2397772,-81.6381785
+"401","Richmond","VA","United States","North America",37.5385087,-77.43428
+"402","Riga","","Latvia","Europe",56.9493977,24.1051846
+"403","Rimouski","QC","Canada","North America",48.450155,-68.529968
+"404","Rio de Janeiro","","Brazil","South America",-22.9110137,-43.2093727
+"405","Riyadh","","Saudi Arabia","Asia",24.638916,46.7160104
+"406","Roanoke","VA","United States","North America",37.270973,-79.9414313
+"407","Rochester","NY","United States","North America",43.157285,-77.615214
+"408","Rockford","IL","United States","North America",42.2713945,-89.093966
+"409","Rockingham","NC","United States","North America",34.9393201,-79.7739457
+"410","Roland","OK","United States","North America",35.4212021,-94.5146616
+"411","Rome","","Italy","Europe",41.8933203,12.4829321
+"412","Rome","NY","United States","North America",43.2128473,-75.4557304
+"413","Roskilde","","Denmark","Europe",55.6433478,12.0819247
+"414","Rotterdam","","Netherlands","Europe",51.9244424,4.47775
+"415","Rouen","","France","Europe",49.4404591,1.0939658
+"416","Royal Oak","MI","United States","North America",42.4894801,-83.1446485
+"417","Russellville","AR","United States","North America",35.2784173,-93.1337856
+"418","Saarbrücken","","Germany","Europe",49.234362,6.996379
+"419","Sacramento","CA","United States","North America",38.5810606,-121.493895
+"420","Saginaw","MI","United States","North America",43.4200387,-83.9490365
+"421","Saint Petersburg","","Russia","Europe",59.938732,30.316229
+"422","Saint-Denis","","France","Europe",48.935773,2.3580232
+"423","Saitama","","Japan","Asia",35.8616402,139.6457957
+"424","Salt Lake City","UT","United States","North America",40.7596198,-111.886797
+"425","Salzburg","","Austria","Europe",47.7981346,13.0464806
+"426","San Antonio","TX","United States","North America",29.4246002,-98.4951405
+"427","San Bernardino","CA","United States","North America",34.1081621,-117.28946
+"428","San Diego","CA","United States","North America",32.7174202,-117.1627728
+"429","San Francisco","CA","United States","North America",37.7790262,-122.419906
+"430","San Jose","CA","United States","North America",37.3361663,-121.890591
+"431","San José","","Costa Rica","North America",9.9325427,-84.0795782
+"432","San Juan","","Puerto Rico","North America",18.465299,-66.116666
+"433","San Quentin","CA","United States","North America",37.9413133,-122.4849739
+"434","San Rafael","CA","United States","North America",37.9747795,-122.5316686
+"435","San Sebastian","","Spain","Europe",43.3224219,-1.9838889
+"436","Santa Monica","CA","United States","North America",34.0194704,-118.491227
+"437","Santiago","","Chile","South America",-33.4377756,-70.6504502
+"438","Sapporo","","Japan","Asia",43.061936,141.3542924
+"439","Saskatoon","SK","Canada","North America",52.131802,-106.660767
+"440","Saugerties","NY","United States","North America",42.0775906,-73.9529126
+"441","Savannah","GA","United States","North America",32.0790074,-81.0921335
+"442","Sayreville","NJ","United States","North America",40.4635362,-74.3618499
+"443","Scotia","NY","United States","North America",42.8264652,-73.9642915
+"444","Scranton","PA","United States","North America",41.4086874,-75.6621294
+"445","Seattle","WA","United States","North America",47.6038321,-122.330062
+"446","Seoul","","South Korea","Asia",37.5666791,126.9782914
+"447","Shanghai","","China","Asia",31.2323437,121.4691024
+"448","Sheffield","","England","Europe",53.3806626,-1.4702278
+"449","Shreveport","LA","United States","North America",32.5135356,-93.7477839
+"450","Sindelfingen","","Germany","Europe",48.7084162,9.0035455
+"451","Singapore","","Singapore","Asia",1.2899175,103.8519072
+"452","Sioux Falls","SD","United States","North America",43.5488256,-96.7307737
+"453","Sofia","","Bulgaria","Europe",42.6977028,23.3217359
+"454","Somerset","WI","United States","North America",45.1244108,-92.6735365
+"455","Sonoma","CA","United States","North America",38.280773,-122.439732761757
+"456","South River","NJ","United States","North America",40.446495,-74.3859831
+"457","South Shetland Islands","","Antarctica","Antarctica",-62.6079191,-60.6596199960683
+"458","Sparta","KY","United States","North America",38.6880765,-84.8988043976766
+"459","Spokane","WA","United States","North America",47.6571934,-117.42351
+"460","Springfield","IL","United States","North America",39.7990175,-89.6439575
+"461","St. Gallen","","Switzerland","Europe",47.425618,9.3762397
+"462","St. Goarshausen","","Germany","Europe",50.1548796,7.7160976
+"463","St. Louis","MO","United States","North America",38.6280278,-90.1910154
+"464","St. Paul","MN","United States","North America",44.9497487,-93.0931028
+"465","St. Peters","MO","United States","North America",38.791612,-90.5958468
+"466","St. Petersburg","","Russia","Europe",59.938732,30.316229
+"467","St. Petersburg","FL","United States","North America",27.7700475,-82.6359078
+"468","State College","PA","United States","North America",40.7944504,-77.8616386
+"469","Staten Island","NY","United States","North America",40.5834557,-74.1496048
+"470","Stockholm","","Sweden","Europe",59.3251172,18.0710935
+"471","Strasbourg","","France","Europe",48.584614,7.7507127
+"472","Stuttgart","","Germany","Europe",48.7784485,9.1800132
+"473","Swanzey","NH","United States","North America",42.8742651,-72.2815335
+"474","Sydney","","Australia","Oceania",-33.768528,150.956855952395
+"475","Sydney","NS","Canada","North America",46.137977,-60.194092
+"476","Syracuse","NY","United States","North America",43.0481221,-76.1474244
+"477","São Paulo","","Brazil","South America",-1.2043218,-47.1583944
+"478","Tallahassee","FL","United States","North America",30.4380832,-84.2809332
+"479","Tallinn","","Estonia","Europe",59.4372155,24.7453688
+"480","Tampa","FL","United States","North America",27.9477595,-82.458444
+"481","Tartu","","Estonia","Europe",58.3801207,26.72245
+"482","Tarvasjoki","","Finland","Europe",60.57848815,22.7074971995799
+"483","Tel Aviv","","Israel","Asia",32.0852997,34.7818064
+"484","Texarkana","TX","United States","North America",33.44667445,-94.0771483052201
+"485","Tinley Park","IL","United States","North America",41.5733669,-87.7844944
+"486","Tokyo","","Japan","Asia",35.6840574,139.7744912
+"487","Toledo","OH","United States","North America",41.6529143,-83.5378173
+"488","Torhout","","Belgium","Europe",51.0647837,3.1016415
+"489","Toronto","ON","Canada","North America",43.6534817,-79.3839347
+"490","Toulon","","France","Europe",43.1257311,5.9304919
+"491","Toulouse","","France","Europe",43.6044622,1.4442469
+"492","Trondheim","","Norway","Europe",63.4304475,10.3952118
+"493","Troy","NY","United States","North America",42.7284117,-73.6917878
+"494","Tucson","AZ","United States","North America",32.2228765,-110.974847
+"495","Tuktoyaktuk","NT","Canada","North America",69.4440189,-133.031904
+"496","Tulsa","OK","United States","North America",36.1563122,-95.9927516
+"497","Turin","","Italy","Europe",45.0677551,7.6824892
+"498","Turku","","Finland","Europe",60.4517531,22.2670522
+"499","Tyler","TX","United States","North America",32.3512601,-95.3010624
+"500","Udine","","Italy","Europe",46.0634632,13.2358377
+"501","Uniondale","NY","United States","North America",40.7095827,-73.592341
+"502","Universal City","CA","United States","North America",34.1419417,-118.358445
+"503","University Park","PA","United States","North America",34.7406465,-86.6230495
+"504","Utrecht","","Netherlands","Europe",52.0907006,5.1215634
+"505","Valley Stream","NY","United States","North America",40.6631362,-73.7056955
+"506","Vancouver","BC","Canada","North America",49.2608724,-123.113952
+"507","Victoriaville","QC","Canada","North America",46.0554948,-71.9598586
+"508","Vienna","","Austria","Europe",48.2083537,16.3725042
+"509","Vigo","","Spain","Europe",42.1964491,-8.7117809
+"510","Vilnius","","Lithuania","Europe",54.6870458,25.2829111
+"511","Virginia Beach","VA","United States","North America",36.8529841,-75.9774183
+"512","Waco","TX","United States","North America",31.5491899,-97.1474628
+"513","Warsaw","","Poland","Europe",52.2319581,21.0067249
+"514","Washington","DC","United States","North America",38.8950368,-77.0365427
+"515","Weedsport","NY","United States","North America",43.048677,-76.5627197
+"516","Wellington","","New Zealand","Oceania",-41.2887953,174.7772114
+"517","Werchter","","Belgium","Europe",50.970584,4.6937963
+"518","West Hartford","CT","United States","North America",41.7620447,-72.7420399
+"519","West Hollywood","CA","United States","North America",34.0923014,-118.3692894
+"520","West Palm Beach","FL","United States","North America",26.715364,-80.0532942
+"521","Whitley Bay","","England","Europe",55.0422091,-1.4454353
+"522","Wichita","KS","United States","North America",37.6922361,-97.3375448
+"523","Winnipeg","MB","Canada","North America",49.8955367,-97.1384584
+"524","Worcester","MA","United States","North America",42.2625621,-71.8018877
+"525","Würzburg","","Germany","Europe",49.79245,9.932966
+"526","Yokohama","","Japan","Asia",35.4443947,139.6367727
+"527","Yonkers","NY","United States","North America",40.9312099,-73.8987469
+"528","Yverdon-les-Bains","","Switzerland","Europe",46.7785711,6.6409158
+"529","Zagreb","","Croatia","Europe",45.84264135,15.9622314765936
+"530","Zaragoza","","Spain","Europe",41.6521342,-0.8809428
+"531","Zurich","","Switzerland","Europe",47.3744489,8.5410422
+"532","Zwolle","","Netherlands","Europe",52.51456525,6.09772035967769

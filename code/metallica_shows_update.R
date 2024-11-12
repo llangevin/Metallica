@@ -203,6 +203,7 @@ rm(met_city_continent)
 
 #Append new shows geolocalization
 met_city_lat_long <- rbind(met_city_lat_long_new, met_city_lat_long, stringsAsFactors = FALSE)
+met_city_lat_long <- met_city_lat_long %>% arrange(city, state, country)
 
 #save metallica city show geolocalization
 saveRDS(met_city_lat_long, file="./data/met_city_lat_long_20241017.Rda")
