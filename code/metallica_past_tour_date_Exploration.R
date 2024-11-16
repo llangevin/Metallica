@@ -244,10 +244,68 @@ m_page %>% html_nodes(".js-album-option") %>% html_attr("data-albumdeliverykey")
 m_page %>% html_nodes(".js-song-option") %>% html_text()
 m_page %>% html_nodes(".js-song-option") %>% html_attr("data-albumdeliverykey")
 
+############################################################
+#cancelled shows
+m_show_page <- read_html('https://www.metallica.com/tour/2022-06-29-frauenfeld-switzerland.html')
+m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text()
+gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
+#not cancelled show
+m_show_page <- read_html('https://www.metallica.com/tour/2024-09-29-mexico-city-mexico.html')
+m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text()
+gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
+
+check_show_cancelled <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
+if(length(check_show_cancelled) >0 ) {
+  if(check_show_cancelled == "Cancelled") {
+  Cancelled <- 1
+  }
+} else {
+  Cancelled <- 0
+}
+
+#load the list of show
+met_shows <- readRDS(file="./data/met_shows_20241017.Rda")
+
+#Build dataset
+met_cancelled_shows<-data.frame()
+
+for (i in (1:dim(met_shows)[1])) {
+  #for (i in (1:2)) {
+  show_ID <- met_shows$show_ID[i]
+  show_date <- met_shows$show_date[i]
+  show_weblink <- met_shows$show_weblink[i]
+  print(paste("show_weblink: ", show_weblink))
+  m_show_page <- read_html(show_weblink)
+  check_show_cancelled <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
+  if(length(check_show_cancelled) >0 ) {
+    if(check_show_cancelled == "Cancelled") {
+      show_cancelled <- 1
+    }
+  } else {
+    show_cancelled <- 0
+  }
+
+  #Append page shows to main list of shows
+  if(i == 1) {
+    met_cancelled_shows <- data.frame(show_weblink, show_cancelled, stringsAsFactors = FALSE)
+  } else {
+    met_cancelled_shows <- rbind(met_cancelled_shows, data.frame(show_weblink, show_cancelled, stringsAsFactors = FALSE))
+  }
+}
+
+#save the list of cancelled show
+saveRDS(met_cancelled_shows, file="./data/met_cancelled_shows_20241115.Rda")
+table(met_cancelled_shows$show_cancelled)
+
+met_shows <- met_shows %>% select(show_ID:show_year)
+met_shows <- dplyr::inner_join(met_shows, met_cancelled_shows, by = "show_weblink")
 
 ############################################################
 #read https://www.metallica.com/tour/2024-09-29-mexico-city-mexico.html
 m_show_page <- read_html('https://www.metallica.com/tour/2024-09-29-mexico-city-mexico.html')
+
+#read https://www.metallica.com/tour/2022-06-29-frauenfeld-switzerland.html
+m_show_page <- read_html('https://www.metallica.com/tour/2022-06-29-frauenfeld-switzerland.html')
 
 #Info
 m_show_page %>% html_nodes(".event-header__date") %>% html_text()
@@ -260,8 +318,13 @@ m_show_page %>% html_nodes(".event-header-eventName") %>% html_text()
 #Other Acts
 m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text()
 m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[1]
+m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[2]
+Other_acts_value <- m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[2]
+Other_acts_value <- gsub("\\s+", " ", trimws(gsub("\n","", Other_acts_value)))
+
 m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text()
 m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[1]
+trimws("                                M72 World Tour                            ")
 
 #Songs
 m_show_page %>% html_nodes(".c-setlist__song__inner") %>% html_text()
@@ -291,30 +354,39 @@ Other_acts_title <- character(2)
 Other_acts_value <- character(2)
 #for (i in (1:dim(met_shows)[1])) {
 for (i in (1:2)) {
+  show_ID <- met_shows$show_ID[i]
+  show_date <- met_shows$show_date[i]
   show_weblink <- met_shows$show_weblink[i]
   m_show_page <- read_html(show_weblink)
   #gsub("\n","", m_page %>% html_nodes(".js-counter") %>% html_text())
-  header_date <- gsub("\n","", m_show_page %>% html_nodes(".event-header__date") %>% html_text())
-  banner_heading <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-heading") %>% html_text())
-  banner_heading_desktop <- gsub(",","", m_show_page %>% html_nodes(".desktop") %>% html_text())
-  banner_heading_mobile <- gsub(",","", m_show_page %>% html_nodes(".mobile") %>% html_text())
-  tour_title <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[1])
-  tour_value <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[1])
-  Other_acts_title <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[2])
-  Other_acts_value <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[2])
-
-  songs <- gsub("\n","", m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_text())
-  songs_link <- m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_attr("href")
+  #header_date <- gsub("\n","", m_show_page %>% html_nodes(".event-header__date") %>% html_text())
+  #show_date <- as.Date(gsub("\n","", m_page %>% html_nodes(".event-header__date") %>% html_text()), "%b %d, %Y")
+  #banner_heading <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-heading") %>% html_text())
+  #banner_heading_desktop <- gsub(",","", m_show_page %>% html_nodes(".desktop") %>% html_text())
+  #banner_heading_mobile <- gsub(",","", m_show_page %>% html_nodes(".mobile") %>% html_text())
+  #tour_title <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[1])
+  tour_value <- trimws(gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[1]) )
+  #Other_acts_title <- gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[2])
+  Other_acts_value <- m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% .[2]
+  Other_acts_value <- gsub("\\s+", " ", trimws(gsub("\n","", Other_acts_value)))
   
+  song <- trimws(gsub("\n","", m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_text()))
+  song_link <- m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_attr("href")
+  song_link <- paste("https://www.metallica.com", song_link, sep = "")
   #Append page shows to main list of shows
   if(i == 1) {
-    met_show_info <- data.frame(header_date, banner_heading, banner_heading_desktop, banner_heading_mobile, tour_title, tour_value, Other_acts_title, Other_acts_value, stringsAsFactors = FALSE)
-    met_show_songs <- data.frame(show_weblink, songs, songs_link, stringsAsFactors = FALSE)
+    met_show_info <- data.frame(show_ID, show_date, show_weblink, tour_value, Other_acts_value, stringsAsFactors = FALSE)
+    met_show_songs <- data.frame(show_weblink, song, song_link, stringsAsFactors = FALSE)
   } else {
-    met_show_info <- rbind(met_show_info, data.frame(header_date, banner_heading, banner_heading_desktop, banner_heading_mobile, tour_title, tour_value, Other_acts_title, Other_acts_value, stringsAsFactors = FALSE))
-    met_show_songs <- rbind(met_show_songs, data.frame(show_weblink, songs, songs_link, stringsAsFactors = FALSE))
+    met_show_info <- rbind(met_show_info, data.frame(show_ID, show_date, show_weblink, tour_value, Other_acts_value, stringsAsFactors = FALSE))
+    met_show_songs <- rbind(met_show_songs, data.frame(show_weblink, song, song_link, stringsAsFactors = FALSE))
   }
 }
+
+met_show_songs %>% group_by(show_weblink) %>% mutate(Song_Number=row_number())
+paste("https://www.metallica.com/", "/songs/creeping-death.html", sep = "")
+#https://www.metallica.com/songs/whiplash.html
+#https://www.metallica.com//songs/creeping-death.html
 
 #Build dataset
 met_show_info<-data.frame()

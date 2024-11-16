@@ -79,12 +79,22 @@ read_metus_shows <- function() {
     #Place of the show
     venue <- gsub("\n@\n"," @ ", mus_page %>% html_nodes(".venue-name") %>% html_text())
     venue <- gsub("\n","", venue)
+    
+    #cancelled shows
+    check_show_cancelled <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
+    if(length(check_show_cancelled) >0 ) {
+      if(check_show_cancelled == "Cancelled") {
+        show_cancelled <- 1
+      }
+    } else {
+      show_cancelled <- 0
+    }
 
     #Append page shows to main list of shows
     if(pg == 1) {
-      metus_shows <- data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, stringsAsFactors = FALSE)
+      metus_shows <- data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, show_cancelled, stringsAsFactors = FALSE)
     } else {
-      metus_shows <- rbind(metus_shows, data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, stringsAsFactors = FALSE))
+      metus_shows <- rbind(metus_shows, data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, show_cancelled, stringsAsFactors = FALSE))
     }
     
     #Next page to read if any

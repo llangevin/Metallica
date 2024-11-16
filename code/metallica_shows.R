@@ -75,12 +75,22 @@ read_met_shows <- function() {
     #Place of the show
     venue <- gsub("\n@\n"," @ ", m_page %>% html_nodes(".venue-name") %>% html_text())
     venue <- gsub("\n","", venue)
+    
+    #cancelled shows
+    check_show_cancelled <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
+    if(length(check_show_cancelled) >0 ) {
+      if(check_show_cancelled == "Cancelled") {
+        show_cancelled <- 1
+      }
+    } else {
+      show_cancelled <- 0
+    }
 
     #Append page shows to main list of shows
     if(pg == 1) {
-      met_shows <- data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, stringsAsFactors = FALSE)
+      met_shows <- data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, show_cancelled, stringsAsFactors = FALSE)
     } else {
-      met_shows <- rbind(met_shows, data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, stringsAsFactors = FALSE))
+      met_shows <- rbind(met_shows, data.frame(show_ID, show_title, show_date, show_venue_city, city, state, country, venue, show_weblink, show_year, show_cancelled, stringsAsFactors = FALSE))
     }
     
     #Next page to read if any
@@ -124,7 +134,7 @@ country_continent$continent[country_continent$country == "Russia"] <- "Europe"
 met_shows <- left_join(met_shows, country_continent, by = c('country'))
 
 #save the list of show
-saveRDS(met_shows, file="./data/met_shows_20241017.Rda")
+saveRDS(met_shows, file="./data/met_shows_20241115.Rda")
 #save the list of show in CSV
 met_shows_csv <- "./data/metallica_shows.csv"
 if (file.exists(met_shows_csv)) {file.remove(met_shows_csv)}

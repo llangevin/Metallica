@@ -29,16 +29,14 @@ leaflet() %>%
 #city stats
 met_shows <- readRDS(file="./data/met_shows_20231120.Rda") #from metallica_past_tour_date script
 met_shows_city_stats <- met_shows %>%
+  filter(show_cancelled == 0) %>%
   group_by(city, state, country) %>% 
   summarise(n_shows=n(), min_date=min(show_date), max_date=max(show_date))
 
-met_shows_city_stats <- left_join(met_shows_city_stats, met_city_lat_long, by = c('city', 'state', 'country'))
+#met_shows_city_stats <- left_join(met_shows_city_stats, met_city_lat_long, by = c('city', 'state', 'country'))
+#inner join used to remove cancelled shows
+met_shows_city_stats <- inner_join(met_shows_city_stats, met_city_lat_long, by = c('city', 'state', 'country'))
 
-#corrections for Antartica
-met_shows_city_stats[456,] <- left_join(met_shows_city_stats[456,-c(7,8)], met_city_lat_long_part1[12,], by = c('city', 'state', 'country'))
-met_city_lat_long[184,] <- left_join(met_city_lat_long[184,-c(4,5)], met_city_lat_long_part1[12,], by = c('city', 'state', 'country'))
-met_city_lat_long_part1[12,]
-rm(met_shows_city_stats_test)
 leaflet() %>% 
   addTiles() %>% 
   addMarkers(data = met_shows_city_stats,

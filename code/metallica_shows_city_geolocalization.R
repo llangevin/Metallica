@@ -69,10 +69,13 @@ leaflet() %>%
 
 #city stats
 met_shows_city_stats <- met_shows %>%
+  filter(show_cancelled == 0) %>%
   group_by(city, state, country) %>% 
   summarise(n_shows=n(), min_date=min(show_date), max_date=max(show_date))
 
-met_shows_city_stats <- left_join(met_shows_city_stats, met_city_lat_long, by = c('city', 'state', 'country'))
+#met_shows_city_stats <- left_join(met_shows_city_stats, met_city_lat_long, by = c('city', 'state', 'country'))
+#inner join used to remove cancelled shows
+met_shows_city_stats <- inner_join(met_shows_city_stats, met_city_lat_long, by = c('city', 'state', 'country'))
 
 leaflet() %>% 
   addTiles() %>% 
