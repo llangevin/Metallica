@@ -77,13 +77,14 @@ read_met_shows <- function() {
     venue <- gsub("\n","", venue)
     
     #cancelled shows
-    check_show_cancelled <- gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
-    if(length(check_show_cancelled) >0 ) {
-      if(check_show_cancelled == "Cancelled") {
-        show_cancelled <- 1
+    ctas <- trimws(gsub("\n","", m_page %>% html_nodes(".ctas") %>% html_text()))
+    show_cancelled <- numeric(length(ctas))
+    for (i in (1:length(ctas))) {
+      if (ctas[i] == "Cancelled") {
+        show_cancelled[i] <- 1
+      } else {
+        show_cancelled[i] <- 0
       }
-    } else {
-      show_cancelled <- 0
     }
 
     #Append page shows to main list of shows

@@ -246,6 +246,7 @@ m_page %>% html_nodes(".js-song-option") %>% html_attr("data-albumdeliverykey")
 
 ############################################################
 #cancelled shows
+#Reading show page
 m_show_page <- read_html('https://www.metallica.com/tour/2022-06-29-frauenfeld-switzerland.html')
 m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text()
 gsub("\n","", m_show_page %>% html_nodes(".c-banner-buttons-wrap") %>% html_text())
@@ -296,16 +297,66 @@ for (i in (1:dim(met_shows)[1])) {
 #save the list of cancelled show
 saveRDS(met_cancelled_shows, file="./data/met_cancelled_shows_20241115.Rda")
 table(met_cancelled_shows$show_cancelled)
+met_cancelled_shows <- readRDS(file="./data/met_cancelled_shows_20241115.Rda")
 
 met_shows <- met_shows %>% select(show_ID:show_year)
 met_shows <- dplyr::inner_join(met_shows, met_cancelled_shows, by = "show_weblink")
 
+#cancelled shows
+#Reading tour/past/ page
+m_page <- read_html('https://www.metallica.com/tour/past/?pg=4')
+m_page %>% html_nodes(".ctas") %>% html_text()
+m_page %>% html_nodes(".ctas") %>% html_attr("button cta")
+m_page %>% html_nodes(".ctas") %>% html_attr("button disabled")
+m_page %>% html_nodes(".cta") %>% html_text()
+m_page %>% html_nodes(".disabled") %>% html_text()
+m_page %>% html_nodes(".ctas") %>% html_text() %>% .[2] %>% gsub("\n","")
+gsub("\n","", m_page %>% html_nodes(".ctas") %>% html_text() %>% .[2])
+trimws(gsub("\n","", m_page %>% html_nodes(".ctas") %>% html_text() %>% .[2]))
+trimws(gsub("\n","", m_page %>% html_nodes(".ctas") %>% html_text() %>% .[9]))
+trimws(gsub("\n","", m_page %>% html_nodes(".ctas") %>% html_text()))
+ctas <- trimws(gsub("\n","", m_page %>% html_nodes(".ctas") %>% html_text()))
+length(ctas)
+
+show_cancelled <- numeric(length(ctas))
+for (i in (1:length(ctas))) {
+  if (ctas[i] == "Cancelled") {
+    show_cancelled[i] <- 1
+  } else {
+    show_cancelled[i] <- 0
+  }
+}
+
+############################################################
+#event-header-eventName
+m_page %>% html_nodes(".js-counter") %>% html_text()
+
 ############################################################
 #read https://www.metallica.com/tour/2024-09-29-mexico-city-mexico.html
+#Tour + Other act
 m_show_page <- read_html('https://www.metallica.com/tour/2024-09-29-mexico-city-mexico.html')
 
+#read https://www.metallica.com/tour/2024-03-20-washington-dc.html
+#No Tour + Other act
+m_show_page <- read_html('https://www.metallica.com/tour/2024-03-20-washington-dc.html')
+
+#read https://www.metallica.com/tour/2024-06-29-clisson-france.html
+#Tour + No Other act
+m_show_page <- read_html('https://www.metallica.com/tour/2024-06-29-clisson-france.html')
+
+#read https://www.metallica.com/tour/2023-04-18-amsterdam-netherlands.html
+#No Tour + No Other act
+m_show_page <- read_html('https://www.metallica.com/tour/2023-04-18-amsterdam-netherlands.html')
+
 #read https://www.metallica.com/tour/2022-06-29-frauenfeld-switzerland.html
+#Cancelled
 m_show_page <- read_html('https://www.metallica.com/tour/2022-06-29-frauenfeld-switzerland.html')
+
+
+#show without songs setlist
+#https://www.metallica.com/tour/1993-04-13-singapore-singapore.html
+m_show_page <- read_html('https://www.metallica.com/tour/1993-04-13-singapore-singapore.html')
+#https://www.metallica.com/tour/1993-03-16-tokyo-japan.html
 
 #Info
 m_show_page %>% html_nodes(".event-header__date") %>% html_text()
@@ -324,7 +375,57 @@ Other_acts_value <- gsub("\\s+", " ", trimws(gsub("\n","", Other_acts_value)))
 
 m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text()
 m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% .[1]
+trimws(gsub("\n","", m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text()))
 trimws("                                M72 World Tour                            ")
+
+tour_other_act_value <- m_show_page %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text()
+tour_other_act_title <- m_show_page %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text()
+length(tour_other_act_value)
+if (length(tour_other_act_value) == 2) {
+  tour_value <- trimws(gsub("\n","", tour_other_act_value %>% .[1]) )
+  Other_acts_value <- gsub("\\s+", " ", trimws(gsub("\n","", tour_other_act_value[2])))
+} else if (length(tour_other_act_value) == 1) {
+  if (trimws(gsub("\n","", tour_other_act_title)) == "Tour:") {
+    tour_value <- trimws(gsub("\n","", tour_other_act_value))
+    Other_acts_value <- NA
+  } else {
+    tour_value <- NA
+    Other_acts_value <- gsub("\\s+", " ", trimws(gsub("\n","", tour_other_act_value)))
+  }
+} else {
+  tour_value <- NA
+  Other_acts_value <- NA
+}
+
+#Number of shows for Other Act
+met_show_info[1,]$Other_acts_value
+tidyr::separate(data=met_show_info[1,] ,col=Other_acts_value, sep=',' ,c("oa1", "oa2"))
+#Number of oa per show
+nchar(as.character(met_show_info[1,]$Other_acts_value)) -nchar( gsub(",", "", met_show_info[1,]$Other_acts_value))
+nchar(as.character(met_show_info$Other_acts_value)) -nchar( gsub(",", "", met_show_info$Other_acts_value))
+max_oa <- max(1+ nchar(as.character(met_show_info$Other_acts_value)) -nchar( gsub(",", "", met_show_info$Other_acts_value)), na.rm=T)
+
+test<-as.character("oa1", "oa2")
+rep("oa_", max_oa)
+seq(1:max_oa)
+sprintf("%02d", seq(1:max_oa))
+paste0(rep("oa_", max_oa), sprintf("%02d", seq(1:max_oa)))
+oa_col <- paste0(rep("oa_", max_oa), sprintf("%02d", seq(1:max_oa)))
+tidyr::separate(data=met_show_info[1,] ,col=Other_acts_value, sep=',' ,oa_col, extra = "drop")
+
+suppressWarnings({ 
+  # Code that generates warning messages 
+  tidyr::separate(data=met_show_info[1,] ,col=Other_acts_value, sep=',' ,oa_col, extra = "drop")
+}) 
+
+suppressWarnings({ 
+  # Code that generates warning messages 
+  met_show_info_oa_col <- met_show_info %>% dplyr::select(Other_acts_value) %>%
+    tidyr::separate(col=Other_acts_value, sep=',' ,oa_col, extra = "drop") %>% tidyr::gather(oa_col) %>%
+    filter(is.na(value) == F) %>% dplyr::select(value) %>% rename(Other_acts = value) %>%
+    group_by(Other_acts) %>% summarize(Count_Other_acts = n())
+}) 
+
 
 #Songs
 m_show_page %>% html_nodes(".c-setlist__song__inner") %>% html_text()

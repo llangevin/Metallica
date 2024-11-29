@@ -156,3 +156,84 @@ met_shows %>% mutate(venue = paste0(venue,', ',show_venue_city)) %>% group_by(ve
        subtitle = "Number of Shows per Venue") +
   theme_dark() +   
   geom_text(aes(label = Count_Venue), hjust = 0, nudge_x = 0.05, nudge_y = 0)
+
+#################################################################################
+#Shows Tour stats
+met_show_info <- readRDS(file="./data/met_show_info_20241116.Rda")
+
+#Tours with most shows
+met_show_info %>% group_by(tour_value) %>% summarize(Count_Tour_Shows = n()) %>%
+  filter(Count_Tour_Shows>=1 & is.na(tour_value) == F) %>% arrange(Count_Tour_Shows) %>%
+  mutate(tour_value = factor(tour_value, levels = tour_value)) %>%
+  ggplot(aes(tour_value, Count_Tour_Shows)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "Tour",
+       title ="Metallica",
+       subtitle = "Number of Shows per Tour") +
+  theme_dark() +   
+  geom_text(aes(label = Count_Tour_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0)
+
+#Add begin and end Year in Tour label using show_date
+tour_years <- met_show_info %>% group_by(tour_value) %>%
+  summarize(Count_Tour_Shows = n(), tour_min = min(year(show_date)), tour_max = max(year(show_date))) %>%
+  ungroup() %>% mutate(tour_value_year = paste(paste(tour_value, substr(tour_min,3,4), sep=' '), substr(tour_max,3,4), sep='-')) %>%
+  arrange(Count_Tour_Shows) %>% filter(Count_Tour_Shows>=1 & is.na(tour_value) == F) %>%
+  mutate(tour_value_year = factor(tour_value_year, levels = tour_value_year))
+
+ggplot(data=tour_years, aes(tour_value_year, Count_Tour_Shows)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "Tour",
+       title ="Metallica",
+       subtitle = "Number of Shows per Tour") +
+  theme_dark() +   
+  geom_text(aes(label = Count_Tour_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0)
+
+#tour_years %>% mutate(tour_value_year = paste(paste(tour_value, tour_min, sep=' '), tour_max, sep='-'))
+
+cat(tour_years[1,]$tour_value, tour_years[1,]$tour_min, sep='-')
+paste(tour_years[1,]$tour_value, tour_years[1,]$tour_min, sep='-')
+
+#Other Act
+#Number of shows for Other Act
+max_oa <- max(1+ nchar(as.character(met_show_info$Other_acts_value)) -nchar( gsub(",", "", met_show_info$Other_acts_value)), na.rm=T)
+oa_col <- paste0(rep("oa_", max_oa), sprintf("%02d", seq(1:max_oa)))
+
+suppressWarnings({ 
+  # Code that generates warning messages 
+  met_show_info_oa_col <- met_show_info %>% dplyr::select(Other_acts_value) %>%
+    tidyr::separate(col=Other_acts_value, sep=',' ,oa_col, extra = "drop") %>% tidyr::gather(oa_col) %>%
+    filter(is.na(value) == F) %>% dplyr::select(value) %>% rename(Other_acts = value) %>%
+    group_by(Other_acts) %>% summarize(Count_Other_acts = n())
+})
+
+met_show_info_oa_col %>%
+  filter(Count_Other_acts>=25) %>% arrange(Count_Other_acts) %>% mutate(Other_acts = factor(Other_acts, levels = Other_acts)) %>%
+  ggplot(aes(Other_acts, Count_Other_acts)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "Other Acts",
+       title ="Metallica",
+       subtitle = "Number of Shows per Other Acts") +
+  theme_dark() +   
+  geom_text(aes(label = Count_Other_acts), hjust = 0, nudge_x = 0.05, nudge_y = 0)
+
+#Song
+#Most played songs
+met_show_songs %>% group_by(song) %>% summarize(Count_Song_Shows = n()) %>%
+  filter(Count_Song_Shows>=200 & is.na(song) == F) %>% arrange(Count_Song_Shows) %>% mutate(song = factor(song, levels = song)) %>%
+  ggplot(aes(song, Count_Song_Shows)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "Song",
+       title ="Metallica",
+       subtitle = "Number of Shows per Song") +
+  theme_dark() +   
+  geom_text(aes(label = Count_Song_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0)
+
+#Most played album/song
