@@ -22,7 +22,7 @@ setwd("~/Projects/Metallica")
 metus_shows<-data.frame()
 
 #load Metallica list of shows to update
-met_shows <- readRDS(file="./data/met_shows_20241016.Rda")
+met_shows <- readRDS(file="./data/met_shows_20241115.Rda")
 print(max(met_shows$show_date))
 
 #parameters
@@ -114,7 +114,7 @@ read_metus_shows <- function() {
   }
 read_metus_shows()
 
-#Keep new shows
+#Keep new shows that are not in met_shows
 metus_shows <- metus_shows[metus_shows$show_date > max(met_shows$show_date),]
 
 #Corrections

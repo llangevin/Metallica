@@ -16,6 +16,9 @@ library(rvest)
 
 #load the list of show
 met_shows <- readRDS(file="./data/met_shows_20241115.Rda")
+#met_shows is generated in metallica_shows.R script R script
+#that read the Metallica Shows information from https://www.metallica.com/tour/past/
+#met_shows$show_weblink is used to read each show and its songs list.
 
 #remove cancelled shows
 met_shows <- met_shows %>% filter(show_cancelled == 0)
@@ -83,6 +86,7 @@ table(met_show_songs$song)
 #save the list of show info Tour and Other Act
 saveRDS(met_show_info, file="./data/met_show_info_20241116.Rda")
 met_show_info <- readRDS(file="./data/met_show_info_20241116.Rda")
+#met_show_info could have be added to met_shows
 
 met_show_songs <- met_show_songs %>% group_by(show_weblink) %>% mutate(song_number=row_number())
 #save the list of show setlits
