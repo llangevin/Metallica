@@ -43,10 +43,10 @@ met_city_lat_long_part2 <- metus_shows_new_cities %>%
 #met_city_lat_long_new <- met_city_lat_long_part2
 if (dim(met_city_lat_long_part1)[1] >0) {
   met_city_lat_long_new <- rbind(met_city_lat_long_part1,met_city_lat_long_part2)
+  rm(met_city_lat_long_part1)
 } else {
   met_city_lat_long_new <- met_city_lat_long_part2
 }
-rm(met_city_lat_long_part1)
 rm(met_city_lat_long_part2)
 
 #Adding Continent
