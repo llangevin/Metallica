@@ -1,3 +1,9 @@
+#metallica_shows_info_songs.R
+#Create met_show_info and met_show_songs
+#Read additional info from each show web page like Other Acts and if there is a songs list
+#Information is stored in met_show_info dataset
+#If there is a songs list it is read and each played song is stored in met_show_songs dataset with some attributes
+
 Sys.getlocale()
 Sys.setlocale("LC_ALL", 'en_US.UTF-8')
 Sys.getenv()
@@ -15,7 +21,7 @@ library(tidyverse)
 library(rvest)
 
 #load the list of show
-met_shows <- readRDS(file="./data/met_shows_20241115.Rda")
+met_shows <- readRDS(file="./data/met_shows_20241215.Rda")
 #met_shows is generated in metallica_shows.R script R script
 #that read the Metallica Shows information from https://www.metallica.com/tour/past/
 #met_shows$show_weblink is used to read each show and its songs list.
@@ -61,8 +67,11 @@ for (i in (1:dim(met_shows)[1])) {
   song <- trimws(gsub("\n","", m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_text()))
   song_link <- m_show_page %>% html_nodes(".c-setlist__song__name") %>% html_attr("href")
   song_link <- paste("https://www.metallica.com", song_link, sep = "")
-  if (length(song) > 0) {song_setlist <- 1}
-  else {song_setlist <- 0}
+  if (length(song) > 0) {
+    song_setlist <- 1
+  } else {
+    song_setlist <- 0
+  }
   #Append page shows to main list of shows
   if(i == 1) {
     met_show_info <- data.frame(show_ID, show_date, show_weblink, tour_value, Other_acts_value, song_setlist, stringsAsFactors = FALSE)
@@ -78,17 +87,22 @@ for (i in (1:dim(met_shows)[1])) {
 }
 
 #Checks
+dim(met_shows)
+length(unique(met_shows$show_ID))
+dim(met_shows %>% filter(show_cancelled == 0) %>% filter(show_ID != "2017-08-07-san-francisco-california"))
+dim(met_show_info)
+length(unique(met_show_info$show_ID))
 table(met_show_info$tour_value)
 table(met_show_info$Other_acts_value)
 table(met_show_info$song_setlist)
 table(met_show_songs$song)
 
 #save the list of show info Tour and Other Act
-saveRDS(met_show_info, file="./data/met_show_info_20241116.Rda")
-met_show_info <- readRDS(file="./data/met_show_info_20241116.Rda")
+saveRDS(met_show_info, file="./data/met_show_info_20241215.Rda")
+met_show_info <- readRDS(file="./data/met_show_info_20241215.Rda")
 #met_show_info could have be added to met_shows
 
 met_show_songs <- met_show_songs %>% group_by(show_weblink) %>% mutate(song_number=row_number())
 #save the list of show setlits
-saveRDS(met_show_songs, file="./data/met_show_songs_20241116.Rda")
+saveRDS(met_show_songs, file="./data/met_show_songs_20241215.Rda")
 met_show_songs <- readRDS(file="./data/met_show_songs_20241116.Rda")

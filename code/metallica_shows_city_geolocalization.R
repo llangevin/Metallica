@@ -1,3 +1,4 @@
+#Create met_city_lat_long dataset
 #Add city geolocalization
 library(tidyverse)
 library(tidygeocoder)
@@ -18,23 +19,33 @@ met_shows <- readRDS(file="./data/met_shows_20231120.Rda")
 
 #Part 1
 #United Kingdom cities geolocalization info obtain without using country
-met_city_lat_long_part1 <- met_shows %>%
+met_city_lat_long_part1 <- metus_shows_new_cities %>%
   select(city, state, country) %>%
   filter(country %in% c('Antarctica','England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico')) %>%
   #mutate(country="") %>%
-  distinct(city, state, country) %>%
-  geocode(city = city, method = "osm")
+  distinct(city, state, country)
+
+if (dim(met_city_lat_long_part1)[1] >0) {
+  met_city_lat_long_part1 <- met_city_lat_long_part1 %>%
+    geocode(city = city, method = "osm")
+}
 
 #Part 2
 #Using city/state/country information to get geolocalization
-met_city_lat_long_part2 <- met_shows %>%
+met_city_lat_long_part2 <- metus_shows_new_cities %>%
   select(city, state, country) %>%
   filter(!(country %in% c('Antarctica','England','Northern Ireland','Scotland','Wales','Hong Kong','Phillippines','Puerto Rico'))) %>%
   #mutate(country="") %>%
   distinct(city, state, country) %>%
   geocode(city = city, state = state, country=country, method = "osm")
 
-met_city_lat_long <- rbind(met_city_lat_long_part1,met_city_lat_long_part2)
+#use line below instead if Part 1 does not have cases
+#met_city_lat_long_new <- met_city_lat_long_part2
+if (dim(met_city_lat_long_part1)[1] >0) {
+  met_city_lat_long_new <- rbind(met_city_lat_long_part1,met_city_lat_long_part2)
+} else {
+  met_city_lat_long_new <- met_city_lat_long_part2
+}
 rm(met_city_lat_long_part1)
 rm(met_city_lat_long_part2)
 

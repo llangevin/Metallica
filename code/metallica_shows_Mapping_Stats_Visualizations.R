@@ -18,7 +18,7 @@ install.packages(c("maps", "mapdata"))
 install.packages(c("leaflet"))
 library(leaflet)
 #met_city_lat_long from C:/Users/Utilisateur/Documents/Projects/Metallica/metillica_shows_city_geolocalization.R
-met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20231124.Rda")
+met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241215.Rda")
 leaflet() %>% 
   addTiles() %>% 
   addMarkers(data = met_city_lat_long,
@@ -27,7 +27,7 @@ leaflet() %>%
                                  met_city_lat_long$city)))
 
 #city stats
-met_shows <- readRDS(file="./data/met_shows_20231120.Rda") #from metallica_past_tour_date script
+met_shows <- readRDS(file="./data/met_shows_20241215.Rda") #from metallica_past_tour_date script
 met_shows_city_stats <- met_shows %>%
   filter(show_cancelled == 0) %>%
   group_by(city, state, country) %>% 

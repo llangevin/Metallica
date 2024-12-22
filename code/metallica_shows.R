@@ -41,16 +41,19 @@ read_met_shows <- function() {
     #web page of the show
     show_weblink <- m_page %>% html_nodes(".past-show-item") %>% html_attr("href")
     show_title <- m_page %>% html_nodes(".past-show-item") %>% html_attr("title")
-    
-    #Date of the Show
-    show_date <- as.Date(gsub("\n","", m_page %>% html_nodes(".date-numbers") %>% html_text()), "%b %d, %Y")
 
+    #Date of the Show
+    #show_date <- as.Date(gsub("\n","", m_page %>% html_nodes(".date-numbers") %>% html_text()), "%b %d, %Y")
+    #changes in web page, spaces added in date, cannot use html_nodes(".date-numbers") anymore
+    show_date <- as.Date(substr(show_title,1,10), "%Y-%m-%d")
+    
     #Add Year of the show
     show_year<- as.numeric(format(show_date,"%Y"))
-    
+
     #.venue-city p
-    show_venue_city <- gsub("\n@\n"," @ ", m_page %>% html_nodes(".venue-city") %>% html_text())
-    show_venue_city <- gsub("\n","", show_venue_city)
+    #show_venue_city <- gsub("\n@\n"," @ ", m_page %>% html_nodes(".venue-city") %>% html_text())
+    #show_venue_city <- gsub("\n","", show_venue_city)
+    show_venue_city <- gsub("\n|  ","", trimws(m_page %>% html_nodes(".venue-city") %>% html_text()))
     
     #Town/State/Country of the show
     city <- character(length(show_venue_city))
@@ -73,8 +76,10 @@ read_met_shows <- function() {
     }
     
     #Place of the show
-    venue <- gsub("\n@\n"," @ ", m_page %>% html_nodes(".venue-name") %>% html_text())
-    venue <- gsub("\n","", venue)
+    #venue <- gsub("\n@\n"," @ ", m_page %>% html_nodes(".venue-name") %>% html_text())
+    #venue <- gsub("\n","", venue)
+    venue <- trimws(gsub("\n|  ","", m_page %>% html_nodes(".venue-name") %>% html_text()))
+    venue <- gsub("@"," @ ", venue)
     
     #cancelled shows
     ctas <- trimws(gsub("\n","", m_page %>% html_nodes(".ctas") %>% html_text()))
@@ -135,7 +140,7 @@ country_continent$continent[country_continent$country == "Russia"] <- "Europe"
 met_shows <- left_join(met_shows, country_continent, by = c('country'))
 
 #save the list of show
-saveRDS(met_shows, file="./data/met_shows_20241115.Rda")
+saveRDS(met_shows, file="./data/met_shows_20241215.Rda")
 #save the list of show in CSV
 met_shows_csv <- "./data/metallica_shows.csv"
 if (file.exists(met_shows_csv)) {file.remove(met_shows_csv)}
@@ -144,6 +149,7 @@ write.csv(met_shows,met_shows_csv, row.names = T)
 #validations and data checks
 print(Hidden_counter) #Number of shows from Metallica web site
 dim(met_shows)
+length(unique(met_shows$show_ID))
 summary(met_shows)
 min(met_shows$show_date)
 max(met_shows$show_date)
@@ -154,7 +160,7 @@ max(met_shows$show_number)
 met_shows[is.na(met_shows$show_year),]
 met_shows[is.na(met_shows$show_number),]
 
-#Shows in Russia and Phillippines dont have continent
+#Shows in Russia and Philippines dont have continent
 table(met_shows$continent)
 table(met_shows$country)
 met_shows[met_shows$continent == "null",]
@@ -166,7 +172,7 @@ met_shows[met_shows$city == "null",]
 met_shows[met_shows$show_weblink== "null",]
 
 #load the list of show
-met_shows <- readRDS(file="./data/met_shows_20241017.Rda")
+met_shows <- readRDS(file="./data/met_shows_20241215.Rda")
 
 #0 Add validations and data checks
 #1 Add Show_Year

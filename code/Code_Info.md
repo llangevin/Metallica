@@ -2,11 +2,6 @@
 
 The Code_Info.md file contains the list of scripts utilized in the project and what they are used for, what they read from <https://www.metallica.com> and outputs that they produce.
 
--   metallica_past_tour_date_Exploration.R
-    -   Test different packages and functions
-    -   Test rvest to read the metallica.com site
-    -   Test tidygeocoder to geolocalization to cities for mapping
-    -   Dev and tests of code to build the list of shows dataset
 -   metallica_shows.R
     -   R script to read the Metallica Shows information from <https://www.metallica.com/tour/past/>
     -   Generate met_shows dataset which contains 1 row per Metallica show with some attributes (date, location)
@@ -28,3 +23,8 @@ The Code_Info.md file contains the list of scripts utilized in the project and w
 -   metallica_shows_Mapping_Stats_Visualizations.R
     -   Test the leaflet package to visualize Metallica shows around the world
     -   Contains Stats & Visualization Plots, Distribution of Shows per year
+-   metallica_past_tour_date_Exploration.R
+    -   Test different packages and functions
+    -   Test rvest to read the metallica.com site
+    -   Test tidygeocoder to geolocalization to cities for mapping
+    -   Dev and tests of code to build the list of shows dataset

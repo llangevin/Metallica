@@ -31,6 +31,10 @@ gsub("\n","", m_page %>% html_nodes(".venue-name") %>% html_text() %>% .[5])
 venue <- gsub("\n@\n"," @ ", m_page %>% html_nodes(".venue-name") %>% html_text())
 venue <- gsub("\n","", venue)
 
+#changes in web page for ".venue-city"
+venue <- trimws(gsub("\n|  ","", m_page %>% html_nodes(".venue-name") %>% html_text()))
+venue <- gsub("@"," @ ", venue)
+
 #Town/State/Country of the show
 #.venue-city p
 m_page %>% html_nodes(".venue-city") %>% html_text()
@@ -49,6 +53,14 @@ show_venue_city_dim <- sapply(gregexpr(",",show_venue_city, fixed = TRUE), funct
 gregexpr(",",show_venue_city, fixed = TRUE)[[1]][1]
 gregexpr(",",show_venue_city, fixed = TRUE)[[1]][2]
 gregexpr(",",show_venue_city, fixed = TRUE)[[20]][1]
+
+#changes in web page for ".venue-city"
+trimws(m_page %>% html_nodes(".venue-city") %>% html_text())
+test <- gsub("\n","", trimws(m_page %>% html_nodes(".venue-city") %>% html_text()))
+test <- gsub("\n|  ","", trimws(m_page %>% html_nodes(".venue-city") %>% html_text()))
+trimws(gsub("\n","", (m_page %>% html_nodes(".venue-city") %>% html_text())))
+gregexpr(pattern, string) #find starting position and length of all matches
+regmatches(test[1], gregexpr(pattern, test[1])) #extract all matches, outputs a list
 
 #show_venue_city with one ","
 show_venue_city[20]
