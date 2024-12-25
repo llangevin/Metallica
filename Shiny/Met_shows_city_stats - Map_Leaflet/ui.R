@@ -1,6 +1,6 @@
 fluidPage(
-  titlePanel("Metallica Shows per City"),
-  leafletOutput("Map"),
+  titlePanel("Basic DataTable"),
+  
   # Create a new Row in the UI for selectInputs
   fluidRow(
     column(3,
@@ -30,5 +30,5 @@ fluidPage(
     )
   ),
   # Create a new row for the table.
-  DT::dataTableOutput("Table")
+  DT::dataTableOutput("table")
 )

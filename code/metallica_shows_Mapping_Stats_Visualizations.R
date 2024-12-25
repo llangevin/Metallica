@@ -82,7 +82,8 @@ met_shows %>% group_by(city) %>% summarize(Count_City = n()) %>%
        x = "City",
        title ="Metallica",
        subtitle = "Number of Shows per City") +
-  theme_dark()
+  theme_dark()# +   
+#  geom_text(aes(label = Count_City), nudge_x = 0, nudge_y = 2)
 
 #States with most shows
 met_shows %>% filter(country=='United States') %>% group_by(state) %>% summarize(Count_state = n()) %>%
@@ -159,7 +160,7 @@ met_shows %>% mutate(venue = paste0(venue,', ',show_venue_city)) %>% group_by(ve
 
 #################################################################################
 #Shows Tour stats
-met_show_info <- readRDS(file="./data/met_show_info_20241116.Rda")
+met_show_info <- readRDS(file="./data/met_show_info_20241215.Rda")
 
 #Tours with most shows
 met_show_info %>% group_by(tour_value) %>% summarize(Count_Tour_Shows = n()) %>%
@@ -224,16 +225,56 @@ met_show_info_oa_col %>%
 
 #Song
 #Most played songs
+met_show_songs <- readRDS(file="./data/met_show_songs_20241215.Rda")
 met_show_songs %>% group_by(song) %>% summarize(Count_Song_Shows = n()) %>%
   filter(Count_Song_Shows>=200 & is.na(song) == F) %>% arrange(Count_Song_Shows) %>% mutate(song = factor(song, levels = song)) %>%
   ggplot(aes(song, Count_Song_Shows)) +
   geom_col(fill = "grey", color = "black") +
   coord_flip() +
-  labs(y = "Number of Shows",
-       x = "Song",
+  labs(y = "Number of time played",
+       x = "Song Title",
        title ="Metallica",
-       subtitle = "Number of Shows per Song") +
+       subtitle = "Number of times the Song has been played in Show") +
   theme_dark() +   
   geom_text(aes(label = Count_Song_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0)
 
 #Most played album/song
+
+########################
+#Using Metallica album themes from https://github.com/johnmackintosh/metallicaRt
+#install.packages("remotes")
+#library(remotes)
+#remotes::install_github("johnmackintosh/metallicaRt")
+library(metallicaRt)
+#Using geom_col and geom_text
+library(scales)
+show_col(lightning_pal()(10),labels = FALSE)
+library(dplyr)
+met_shows_Year <- met_shows %>% group_by(show_year) %>% summarize(Count_Year = n()) %>% arrange(desc(Count_Year))
+ggplot(met_shows_Year, aes(show_year, Count_Year)) +
+  geom_col() +
+  #scale_color_killem() +
+  #scale_fill_killem() +
+  scale_color_lightning() +
+  scale_fill_lightning() +
+  labs(y = "Number of Shows", 
+       x = "Year",
+       title ="Metallica",
+       subtitle = "Number of Shows per Year") +
+  theme_dark() +   
+  geom_text(aes(label = Count_Year), nudge_x = 0, nudge_y = 2.5)
+
+#metalli_palette("kill")
+# basic treemap
+library(treemap)
+p <- treemap(met_shows_Year,
+             index=c("show_year"),
+             vSize="Count_Year",
+             type="index",
+             palette = "Set2",
+             bg.labels=c("white"),
+             align.labels=list(
+               c("center", "center"), 
+               c("right", "bottom")
+             )  
+)    
