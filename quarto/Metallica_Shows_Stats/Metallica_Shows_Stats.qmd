@@ -1,7 +1,9 @@
 ---
 title: "Metallica Shit Project: Shows Stats"
 date: "12/15/2024"
-format: html
+format:
+  html:
+    embed-resources: true
 editor: visual
 ---
 
