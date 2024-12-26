@@ -1,0 +1,163 @@
+---
+title: "Metallica Shit Project: Shows Stats"
+date: "12/15/2024"
+format: html
+editor: visual
+---
+
+## List of Figures
+
+@fig-met_shows_stats1 Number of Shows per Year.\
+@fig-met_shows_stats2 Number of Shows per City.\
+@fig-met_shows_stats3 Number of Shows per Country.\
+@fig-met_shows_stats4 Number of Shows per Tour.\
+@fig-met_shows_stats5 Number of Times for Other Acts.\
+@fig-met_shows_stats6 Number of Times the Song has been played.
+
+```{r}
+#| echo: false
+#| warning: false
+setwd("C:/Users/Utilisateur/Documents/Projects/Metallica")
+as_of_date <- "20241215"
+met_shows <- readRDS(file=paste("./data/met_shows_", as_of_date, ".Rda", sep = "")) 
+met_show_info <- readRDS(file=paste("./data/met_show_info_", as_of_date, ".Rda", sep = ""))
+met_show_songs <- readRDS(file="./data/met_show_songs_20241215.Rda")
+library(ggplot2)
+library(tidyverse)
+```
+
+```{r}
+#| label: fig-met_shows_stats1
+#| fig-cap: "Number of Shows per Year."
+#| warning: false
+#| echo: false
+
+met_shows_Year <- met_shows %>% group_by(show_year) %>% summarize(Count_Year = n()) %>% arrange(desc(Count_Year))
+ggplot(met_shows_Year, aes(show_year, Count_Year)) +
+  geom_col(fill = "grey", color = "black") +
+  labs(y = "Number of Shows", 
+       x = "Year",
+       title ="Metallica Shows Stats",
+       subtitle = paste("Number of Shows per Year, as of ",as_of_date, sep="")) +
+  theme_dark() +   
+  geom_text(aes(label = Count_Year), nudge_x = 0, nudge_y = 3, size=3)
+```
+
+```{r}
+#| label: fig-met_shows_stats2
+#| fig-cap: "Number of Shows per City"
+#| warning: false
+#| echo: false
+met_shows %>% group_by(city) %>% summarize(Count_City = n()) %>%
+  filter(Count_City>=15) %>% arrange(Count_City) %>% mutate(city = factor(city, levels = city)) %>% 
+  ggplot(aes(city, Count_City)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "City Name",
+       title ="Metallica",
+       subtitle = paste("Number of Shows per City, as of ",as_of_date, sep="")) +
+  theme_dark() +   
+  geom_text(aes(label = Count_City), nudge_x = 0, nudge_y = 1.5, size=4)
+```
+
+```{r}
+#| label: fig-met_shows_stats3
+#| fig-cap: "Number of Shows per Country"
+#| warning: false
+#| echo: false
+met_shows_Country <- met_shows %>% group_by(country) %>% summarize(Count_City = n()) %>%
+  filter(Count_City>=15) %>% arrange(Count_City) %>% mutate(country = factor(country, levels = country))
+ggplot(met_shows_Country,aes(country, Count_City)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "Country Name",
+       title ="Metallica",
+       subtitle = paste("Number of Shows per Country, as of ",as_of_date, sep="")) +
+  theme_dark() +   
+  geom_text( 
+    data=met_shows_Country %>% filter(country=='United States'), # Filter data first
+    aes(label=Count_City), hjust = 1.05, nudge_x = 0, nudge_y = 0
+  ) +
+  geom_text( 
+    data=met_shows_Country %>% filter(country!='United States'), # Filter data first
+    aes(label=Count_City), hjust = 0, nudge_x = 0.1, nudge_y = 0
+  )
+rm(met_shows_Country)
+```
+
+```{r}
+#| label: fig-met_shows_stats4
+#| fig-cap: "Number of Shows per Tour"
+#| warning: false
+#| echo: false
+tour_years <- met_show_info %>% group_by(tour_value) %>%
+  summarize(Count_Tour_Shows = n(), tour_min = min(year(show_date)), tour_max = max(year(show_date))) %>%
+  ungroup() %>% mutate(tour_value_year = paste(paste(tour_value, substr(tour_min,3,4), sep=' '), substr(tour_max,3,4), sep='-')) %>%
+  arrange(Count_Tour_Shows) %>% filter(Count_Tour_Shows>=1 & is.na(tour_value) == F) %>%
+  mutate(tour_value_year = factor(tour_value_year, levels = tour_value_year))
+
+ggplot(data=tour_years, aes(tour_value_year, Count_Tour_Shows)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "Tour Name",
+       title ="Metallica",
+       subtitle = paste("Number of Shows per Tour, as of ",as_of_date, sep="")) +
+  theme_dark() +   
+  geom_text(aes(label = Count_Tour_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0, size=3)
+rm(tour_years)
+```
+
+```{r}
+#| label: fig-met_shows_stats5
+#| fig-cap: "Number of Shows per Other Acts."
+#| warning: false
+#| echo: false
+
+max_oa <- max(1+ nchar(as.character(met_show_info$Other_acts_value)) -nchar( gsub(",", "", met_show_info$Other_acts_value)), na.rm=T)
+oa_col <- paste0(rep("oa_", max_oa), sprintf("%02d", seq(1:max_oa)))
+
+suppressWarnings({ 
+  # Code that generates warning messages 
+  met_show_info_oa_col <- met_show_info %>% dplyr::select(Other_acts_value) %>%
+    tidyr::separate(col=Other_acts_value, sep=',' ,oa_col, extra = "drop") %>% tidyr::gather(oa_col) %>%
+    filter(is.na(value) == F) %>% dplyr::select(value) %>% rename(Other_acts = value) %>%
+    group_by(Other_acts) %>% summarize(Count_Other_acts = n())
+})
+
+met_show_info_oa_col %>%
+  filter(Count_Other_acts>=25) %>% arrange(Count_Other_acts) %>% mutate(Other_acts = factor(Other_acts, levels = Other_acts)) %>%
+  ggplot(aes(Other_acts, Count_Other_acts)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of Shows",
+       x = "Other Acts",
+       title ="Metallica",
+       subtitle = paste("Number of Shows per Other Acts, as of ",as_of_date, sep="")) +
+  theme_dark() +   
+  geom_text(aes(label = Count_Other_acts), size=3.5, hjust = 0, nudge_x = 0.05, size=4, nudge_y = 0)
+rm(max_oa)
+rm(oa_col)
+rm(met_show_info_oa_col)
+```
+
+```{r}
+#| label: fig-met_shows_stats6
+#| fig-cap: "Number of times the Song has been played."
+#| warning: false
+#| echo: false
+
+met_show_songs %>% group_by(song) %>% summarize(Count_Song_Shows = n()) %>%
+  filter(Count_Song_Shows>=200 & is.na(song) == F) %>% arrange(Count_Song_Shows) %>% mutate(song = factor(song, levels = song)) %>%
+  ggplot(aes(song, Count_Song_Shows)) +
+  geom_col(fill = "grey", color = "black") +
+  coord_flip() +
+  labs(y = "Number of time played",
+       x = "Song Title",
+       title ="Metallica",
+       subtitle = paste("Number of times the Song has been played in Show, as of ",as_of_date, sep="")) +
+  theme_dark() +   
+  geom_text(aes(label = Count_Song_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0, size=2.5)
+```

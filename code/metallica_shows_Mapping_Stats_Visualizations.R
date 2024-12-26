@@ -11,6 +11,7 @@ library(tidyverse)
 library(rvest)
 
 setwd("C:/Users/Utilisateur/Documents/Projects/Metallica")
+as_of_date <- "20241215"
 ################################################
 #Mapping the shows
 # some standard map packages.
@@ -18,7 +19,8 @@ install.packages(c("maps", "mapdata"))
 install.packages(c("leaflet"))
 library(leaflet)
 #met_city_lat_long from C:/Users/Utilisateur/Documents/Projects/Metallica/metillica_shows_city_geolocalization.R
-met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241215.Rda")
+#met_city_lat_long <- readRDS(file="./data/met_city_lat_long_20241215.Rda")
+met_city_lat_long <- readRDS(file=paste("./data/met_city_lat_long_", as_of_date, ".Rda", sep = ""))
 leaflet() %>% 
   addTiles() %>% 
   addMarkers(data = met_city_lat_long,
@@ -27,7 +29,8 @@ leaflet() %>%
                                  met_city_lat_long$city)))
 
 #city stats
-met_shows <- readRDS(file="./data/met_shows_20241215.Rda") #from metallica_past_tour_date script
+#met_shows <- readRDS(file="./data/met_shows_20241215.Rda") #from metallica_past_tour_date script
+met_shows <- readRDS(file=paste("./data/met_shows_", as_of_date, ".Rda", sep = "")) #from metallica_past_tour_date script
 met_shows_city_stats <- met_shows %>%
   filter(show_cancelled == 0) %>%
   group_by(city, state, country) %>% 
@@ -82,8 +85,8 @@ met_shows %>% group_by(city) %>% summarize(Count_City = n()) %>%
        x = "City",
        title ="Metallica",
        subtitle = "Number of Shows per City") +
-  theme_dark()# +   
-#  geom_text(aes(label = Count_City), nudge_x = 0, nudge_y = 2)
+  theme_dark() +   
+  geom_text(aes(label = Count_City), nudge_x = 0, nudge_y = 2)
 
 #States with most shows
 met_shows %>% filter(country=='United States') %>% group_by(state) %>% summarize(Count_state = n()) %>%
@@ -112,9 +115,9 @@ met_shows %>% group_by(country) %>% summarize(Count_City = n()) %>%
   theme_dark() +   
   geom_text(aes(label = Count_City), hjust = 0, nudge_x = 0.05, nudge_y = 0) 
 
-met_shows_Country <- met_shows %>% group_by(country) %>% summarize(Count_City = n()) %>%
-  filter(Count_City>=15) %>% arrange(Count_City) %>% mutate(country = factor(country, levels = country))
-ggplot(met_shows_Country,aes(country, Count_City)) +
+met_shows_Country <- met_shows %>% group_by(country) %>% summarize(Count_Country = n()) %>%
+  filter(Count_Country>=15) %>% arrange(Count_Country) %>% mutate(country = factor(country, levels = country))
+ggplot(met_shows_Country,aes(country, Count_Country)) +
   geom_col(fill = "grey", color = "black") +
   coord_flip() +
   labs(y = "Number of Shows",
@@ -124,11 +127,11 @@ ggplot(met_shows_Country,aes(country, Count_City)) +
   theme_dark() +   
   geom_text( 
     data=met_shows_Country %>% filter(country=='United States'), # Filter data first
-    aes(label=Count_City), hjust = 1.05, nudge_x = 0, nudge_y = 0
+    aes(label=Count_Country), hjust = 1.05, nudge_x = 0, nudge_y = 0
   ) +
   geom_text( 
     data=met_shows_Country %>% filter(country!='United States'), # Filter data first
-    aes(label=Count_City), hjust = 0, nudge_x = 0.05, nudge_y = 0
+    aes(label=Count_Country), hjust = 0, nudge_x = 0.05, nudge_y = 0
   )
 rm(met_shows_Country)
 
@@ -160,7 +163,8 @@ met_shows %>% mutate(venue = paste0(venue,', ',show_venue_city)) %>% group_by(ve
 
 #################################################################################
 #Shows Tour stats
-met_show_info <- readRDS(file="./data/met_show_info_20241215.Rda")
+#met_show_info <- readRDS(file="./data/met_show_info_20241215.Rda")
+met_show_info <- readRDS(file=paste("./data/met_show_info_", as_of_date, ".Rda", sep = ""))
 
 #Tours with most shows
 met_show_info %>% group_by(tour_value) %>% summarize(Count_Tour_Shows = n()) %>%
@@ -170,9 +174,10 @@ met_show_info %>% group_by(tour_value) %>% summarize(Count_Tour_Shows = n()) %>%
   geom_col(fill = "grey", color = "black") +
   coord_flip() +
   labs(y = "Number of Shows",
-       x = "Tour",
+       x = "Tour Name",
        title ="Metallica",
-       subtitle = "Number of Shows per Tour") +
+       #subtitle = "Number of Shows per Tour") +
+  subtitle = paste("Number of Shows per Tour, as of ",as_of_date, sep="")) +
   theme_dark() +   
   geom_text(aes(label = Count_Tour_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0)
 
@@ -192,6 +197,7 @@ ggplot(data=tour_years, aes(tour_value_year, Count_Tour_Shows)) +
        subtitle = "Number of Shows per Tour") +
   theme_dark() +   
   geom_text(aes(label = Count_Tour_Shows), hjust = 0, nudge_x = 0.05, nudge_y = 0)
+rm(tour_years)
 
 #tour_years %>% mutate(tour_value_year = paste(paste(tour_value, tour_min, sep=' '), tour_max, sep='-'))
 
@@ -221,7 +227,7 @@ met_show_info_oa_col %>%
        title ="Metallica",
        subtitle = "Number of Shows per Other Acts") +
   theme_dark() +   
-  geom_text(aes(label = Count_Other_acts), hjust = 0, nudge_x = 0.05, nudge_y = 0)
+  geom_text(aes(label = Count_Other_acts), hjust = 0, nudge_x = 0.05, nudge_y = 0, size=4)
 
 #Song
 #Most played songs
