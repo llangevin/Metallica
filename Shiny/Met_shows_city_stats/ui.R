@@ -11,10 +11,10 @@ fluidPage(
     ),
     column(3,
            conditionalPanel("input.continent",
-           selectInput("country",
-                       "Country:",
-                       c("All",
-                         unique(as.character(met_shows_city_stats$country)))))
+                            selectInput("country",
+                                        "Country:",
+                                        c("All",
+                                          unique(as.character(met_shows_city_stats$country)))))
     ),
     column(3,
            selectInput("state",
