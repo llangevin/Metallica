@@ -23,6 +23,8 @@ The Code_Info.md file contains the list of scripts utilized in the project and w
 -   metallica_shows_Mapping_Stats_Visualizations.R
     -   Test the leaflet package to visualize Metallica shows around the world
     -   Contains Stats & Visualization Plots, Distribution of Shows per year
+-   Shiny_data.R
+    -   R script to build the 2 datasets utilized in the Shiny App <https://llangevin.shinyapps.io/met_shows_city_stats_-_to_publish/>
 -   metallica_past_tour_date_Exploration.R
     -   Test different packages and functions
     -   Test rvest to read the metallica.com site
