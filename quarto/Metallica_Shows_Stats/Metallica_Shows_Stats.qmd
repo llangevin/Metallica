@@ -19,13 +19,17 @@ editor: visual
 ```{r}
 #| echo: false
 #| warning: false
+library(tidyverse)
 setwd("C:/Users/Utilisateur/Documents/Projects/Metallica")
 as_of_date <- "20241215"
 met_shows <- readRDS(file=paste("./data/met_shows_", as_of_date, ".Rda", sep = "")) 
+#remove cancelled shows
+met_shows <- met_shows %>% filter(show_cancelled == 0)
+#remove National anthem performance
+met_shows <- met_shows %>% filter(show_ID != "2017-08-07-san-francisco-california")
+
 met_show_info <- readRDS(file=paste("./data/met_show_info_", as_of_date, ".Rda", sep = ""))
 met_show_songs <- readRDS(file="./data/met_show_songs_20241215.Rda")
-library(ggplot2)
-library(tidyverse)
 ```
 
 ```{r}
@@ -147,9 +151,9 @@ rm(met_show_info_oa_col)
 
 ```{r}
 #| label: fig-met_shows_stats6
-#| fig-cap: "Number of times the Song has been played."
-#| warning: false
 #| echo: false
+#| warning: false
+#| fig-cap: Number of times the Song has been played.
 
 met_show_songs %>% group_by(song) %>% summarize(Count_Song_Shows = n()) %>%
   filter(Count_Song_Shows>=200 & is.na(song) == F) %>% arrange(Count_Song_Shows) %>% mutate(song = factor(song, levels = song)) %>%

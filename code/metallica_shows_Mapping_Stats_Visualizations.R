@@ -12,6 +12,7 @@ library(rvest)
 
 setwd("C:/Users/Utilisateur/Documents/Projects/Metallica")
 as_of_date <- "20241215"
+
 ################################################
 #Mapping the shows
 # some standard map packages.
@@ -31,6 +32,12 @@ leaflet() %>%
 #city stats
 #met_shows <- readRDS(file="./data/met_shows_20241215.Rda") #from metallica_past_tour_date script
 met_shows <- readRDS(file=paste("./data/met_shows_", as_of_date, ".Rda", sep = "")) #from metallica_past_tour_date script
+
+#remove cancelled shows
+met_shows <- met_shows %>% filter(show_cancelled == 0)
+#remove National anthem performance
+met_shows <- met_shows %>% filter(show_ID != "2017-08-07-san-francisco-california")
+
 met_shows_city_stats <- met_shows %>%
   filter(show_cancelled == 0) %>%
   group_by(city, state, country) %>% 
