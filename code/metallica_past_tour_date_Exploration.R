@@ -504,3 +504,209 @@ paste("https://www.metallica.com/", "/songs/creeping-death.html", sep = "")
 #Build dataset
 met_show_info<-data.frame()
 met_show_info <- data.frame(header_date, banner_heading, banner_heading_desktop, banner_heading_mobile, tour_title, tour_value, Other_acts_title, Other_acts_value, stringsAsFactors = FALSE)
+
+
+#######################################
+#Music
+#Albums
+#https://www.metallica.com/releases/albums/#primary
+met_albums_page <- read_html('https://www.metallica.com/releases/albums/#primary')
+met_albums_page %>% html_nodes(".release-tile") %>% html_attr("href")
+album_weblink <- met_albums_page %>% html_nodes(".release-tile") %>% html_attr("href")
+album_weblink <- trimws(gsub("\n","", met_albums_page %>% html_nodes(".release-tile") %>% html_attr("href")) )
+album_weblink <- paste("https://www.metallica.com", trimws(gsub("\n","", met_albums_page %>% html_nodes(".release-tile") %>% html_attr("href")) ), sep = "")
+
+met_albums_page %>% html_nodes(".release-tile") %>% html_attr("title")
+album_title <- met_albums_page %>% html_nodes(".release-tile") %>% html_attr("title")
+
+met_albums_page %>% html_nodes(".tile-release-date") %>% html_text()
+album_release_date <- met_albums_page %>% html_nodes(".tile-release-date")  %>% html_text()
+album_release_date <- trimws(gsub("\n","", album_release_date ))
+album_release_date <- trimws(gsub("^Released ","", album_release_date ))
+album_release_date <- as.Date(album_release_date, format = "%B %d, %Y")
+met_albums_page %>% 
+  html_nodes(".tile-release-date") %>% 
+  html_text() %>% 
+  str_squish() %>%                # Removes \n, tabs, and extra internal/outer spaces
+  str_remove("^Released ") %>%    # Specific removal of the prefix
+  mdy()                           # Automatically parses "Month Day, Year"
+
+
+met_albums_page %>% html_nodes(".tile-name") %>% html_text()
+album_tile_name <- met_albums_page %>% html_nodes(".tile-name") %>% html_text()
+album_tile_name <- trimws(gsub("\n","", met_albums_page %>% html_nodes(".tile-name") %>% html_text()))
+met_albums_page %>% 
+  html_nodes(".tile-name") %>% 
+  html_text() %>% 
+  str_squish()
+
+#album_weblink
+#album_release_date
+#album_tile_name
+
+met_albums<-data.frame()
+met_albums <- data.frame(
+  album_tile_name = character(),
+  album_release_date = as.Date(character()),
+  album_weblink = character(),
+  stringsAsFactors = FALSE
+)
+
+met_albums<-data.frame()
+for (i in (1:length(album_tile_name))) {
+  if(i == 1) {
+    met_albums <- data.frame(album_tile_name[i], album_release_date[i], album_weblink[2*i], stringsAsFactors = FALSE)
+  } else {
+    met_albums <- rbind(met_albums, data.frame(album_tile_name[i], album_release_date[i], album_weblink[2*i], stringsAsFactors = FALSE))
+  }
+}
+
+met_albums <- met_albums %>%
+  rename(album_tile_name = album_tile_name.i., album_release_date = album_release_date.i., album_weblink = album_weblink.2...i.) %>%  # Rename
+  arrange(desc(album_release_date))
+
+##############
+#songs per album
+met_album <- read_html('https://www.metallica.com/releases/albums/kill-em-all-album.html')
+
+#released date
+met_album %>% html_nodes(".banner-header__date") %>% html_text()
+
+#album title
+met_album %>% html_nodes(".c-banner-heading") %>% html_text()
+
+#musicians
+met_album %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text()
+met_album %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text()
+
+#tracklist
+tracklist <- met_album %>% html_nodes(".c-setlist__song__name") %>% html_text()
+#songs weblink
+met_album %>% html_nodes(".c-setlist__song__name") %>% html_attr("href")
+paste("https://www.metallica.com", met_album %>% html_nodes(".c-setlist__song__name") %>% html_attr("href"), sep = "")
+
+
+tracklist <- met_album %>% html_nodes(".c-setlist__song__name") %>% html_text()
+met_album_songs <- data.frame()
+for (i in (1:length(tracklist))) {
+  song_number <- i
+  song_title <- str_squish(tracklist[i])
+  #Build list of songs per album
+  if(i == 1) {
+    met_album_songs <- data.frame(song_number, song_title, stringsAsFactors = FALSE)
+  } else {
+    met_album_songs <- rbind(met_album_songs, data.frame(song_number, song_title, stringsAsFactors = FALSE))
+  }
+}
+
+dim(met_albums)[1]
+met_albums[1,3]
+met_album_songs <- data.frame()
+#for (a in (1:dim(met_albums)[1])) {
+for (a in (1:2)) {
+  album_weblink <- met_albums[a,3]
+  album_tile_name <- met_albums[a,1]
+  met_album <- read_html(album_weblink)
+  tracklist <- met_album %>% html_nodes(".c-setlist__song__name") %>% html_text()
+  songs_weblink <- paste("https://www.metallica.com", met_album %>% html_nodes(".c-setlist__song__name") %>% html_attr("href"), sep = "")
+  for (i in (1:length(tracklist))) {
+    song_number <- i
+    song_title <- str_squish(tracklist[i])
+    song_weblink<- songs_weblink[i]
+    #Build list of songs per album
+    if(i == 1) {
+      songs_df <- data.frame(song_title, song_number, album_tile_name, song_weblink, album_weblink, stringsAsFactors = FALSE)
+    } else {
+      songs_df <- rbind(songs_df, data.frame(song_title, song_number, album_tile_name, song_weblink, album_weblink, stringsAsFactors = FALSE))
+    }
+  }
+  met_album_songs <- rbind(met_album_songs,songs_df)
+}
+
+#Liner notes
+met_album %>% html_nodes(".c-release__liner-notes") %>% html_text()
+str(met_album %>% html_nodes(".c-release__liner-notes") %>% html_text())
+length(met_album %>% html_nodes(".c-release__liner-notes") %>% html_text())
+data.frame(my_col = strsplit(met_album %>% html_nodes(".c-release__liner-notes") %>% html_text(), "\n")[[1]])
+
+#musicians
+met_album %>% html_nodes(".c-amp-details__info-dl") %>% html_text()
+met_album %>% html_nodes(".c-amp-details__info-dl__block-wrapper") %>% html_text()
+met_album %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text()
+met_album %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text()
+
+musician_title <- met_album %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% str_squish() %>% str_remove(":")
+musician_value <- met_album %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% str_squish()
+
+gregexpr(",", musician_title[1])[[1]]
+gregexpr(",", musician_title[1])[[1]][1]
+length(gregexpr(",", musician_title[1])[[1]])
+gregexpr(",", musician_title[2])[[1]]
+gregexpr(",", musician_title[2])[[1]][1]
+length(gregexpr(",", musician_title[2])[[1]])
+
+musician_title2 <- c()
+musician_value2 <- c()
+#loop each element and separate the ones with more than one title into single
+for (i in (1:length(musician_title))) {
+  if(gregexpr(",", musician_title)[[i]][1] == -1) {
+    musician_title2 <- c(musician_title2,musician_title[i])
+    musician_value2 <- c(musician_value2,musician_value[i])
+  } else {
+    musician_title2 <- c(musician_title2,str_to_title(str_trim(unlist(strsplit(musician_title[i], ",")))))
+    for (j in (1:(1+length(gregexpr(",", musician_title[i])[[1]])))) {
+      #print(j)
+      musician_value2 <- c(musician_value2,musician_value[i])
+    }
+  }
+}
+
+musicians_df <- data.frame()
+for (m in (1:length(musician_title2))) {
+  #print(musician_title2[m])
+  #print(musician_value2[m])
+  musician_role <- musician_title2[m]
+  musician_name <- musician_value2[m]
+  #Build list of musicians per album
+  if(m == 1) {
+    musicians_df <- data.frame(musician_role, musician_name, stringsAsFactors = FALSE)
+  } else {
+    musicians_df <- rbind(musicians_df, data.frame(musician_role, musician_name, stringsAsFactors = FALSE))
+  }
+}
+
+met_album_musicians <- data.frame()
+#for (a in (1:dim(met_albums)[1])) {
+for (a in (1:2)) {
+  album_weblink <- met_albums[a,3]
+  album_tile_name <- met_albums[a,1]
+  met_album <- read_html(album_weblink)
+  musician_title <- met_album %>% html_nodes(".c-amp-details__info-dl__title") %>% html_text() %>% str_squish() %>% str_remove(":")
+  musician_value <- met_album %>% html_nodes(".c-amp-details__info-dl__value") %>% html_text() %>% str_squish()
+  musician_title2 <- c()
+  musician_value2 <- c()
+  #loop each element and separate the ones with more than one musician title into single
+  for (i in (1:length(musician_title))) {
+    if(gregexpr(",", musician_title)[[i]][1] == -1) {
+      musician_title2 <- c(musician_title2,musician_title[i])
+      musician_value2 <- c(musician_value2,musician_value[i])
+    } else {
+      musician_title2 <- c(musician_title2,str_to_title(str_trim(unlist(strsplit(musician_title[i], ",")))))
+      for (j in (1:(1+length(gregexpr(",", musician_title[i])[[1]])))) {
+        #print(j)
+        musician_value2 <- c(musician_value2,musician_value[i])
+      }
+    }
+  }  
+  for (m in (1:length(musician_title2))) {
+    musician_role <- musician_title2[m]
+    musician_name <- musician_value2[m]
+    #Build list of musicians per album
+    if(m == 1) {
+      musicians_df <- data.frame(musician_role, musician_name, album_tile_name, album_weblink, stringsAsFactors = FALSE)
+    } else {
+      musicians_df <- rbind(musicians_df, data.frame(musician_role, musician_name, album_tile_name, album_weblink, stringsAsFactors = FALSE))
+    }
+  }
+  met_album_musicians <- rbind(met_album_musicians,musicians_df)
+}
