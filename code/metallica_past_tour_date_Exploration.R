@@ -710,3 +710,70 @@ for (a in (1:2)) {
   }
   met_album_musicians <- rbind(met_album_musicians,musicians_df)
 }
+
+#Song writers
+#remove wrong link
+met_album_songs_w <- met_album_songs %>%
+  select(song_title, song_weblink, album_weblink) %>%
+  filter(!(song_weblink %in% c('https://www.metallica.comnull')))
+
+song_weblink <- met_album_songs[215,4]
+met_album_song <- read_html(song_weblink)
+writers <- met_album_song %>% html_nodes(".c-song-detail__writtenby__list-item") %>% html_text()
+met_song_writers <- data.frame()
+#for (s in (1:dim(met_album_songs_w[1])[1])) {
+for (s in (215:215)) {
+  song_title <- met_album_songs_w[s,1]
+  song_weblink <- met_album_songs_w[s,2]
+  album_weblink <- met_album_songs_w[s,3]
+  met_album_song <- read_html(song_weblink)
+  song_banner <- met_album_song %>% html_nodes(".c-banner-heading") %>% html_text()
+  writers <- met_album_song %>% html_nodes(".c-song-detail__writtenby__list-item") %>% html_text()
+  #Build list of writers per song
+  for (w in (1:length(writers))) {
+    writer <- writers[w]
+    if(w == 1) {
+      writers_df <- data.frame(song_banner, song_weblink, album_weblink, writer, stringsAsFactors = FALSE)
+    } else {
+      writers_df <- rbind(writers_df, data.frame(song_banner, song_weblink, album_weblink, writer, stringsAsFactors = FALSE))
+    }    
+  }
+  met_song_writers <- rbind(met_song_writers,writers_df)
+}
+
+#Song lyrics
+song_weblink <- met_album_songs[215,4]
+song_weblink <- met_album_songs[207,4]
+met_album_song <- read_html(song_weblink)
+song_banner <- met_album_song %>% html_nodes(".c-banner-heading") %>% html_text()
+lyrics <- met_album_song %>% html_nodes(".c-song-detail__lyrics") %>% html_text()
+lyrics <- met_album_song %>% html_nodes(".c-song-detail__lyrics__heading") %>% html_text()
+lyrics <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text()
+lyrics <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text2()
+
+lyrics <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text()
+song_copyright <- str_extract(lyrics, "(?<=\n\n).*?(?=\n\n)")
+
+lyrics_copyright <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text2()
+parts <- str_split_fixed(lyrics_copyright, "\n\n", n = 2)
+song_lyrics <- parts[, 1]
+song_copyright <- parts[, 2]
+
+#remove wrong link
+met_album_songs_w <- met_album_songs %>%
+  select(song_title, song_weblink, album_weblink) %>%
+  filter(!(song_weblink %in% c('https://www.metallica.comnull')))
+met_song_lyrics <- data.frame()
+#for (s in (1:dim(met_album_songs_w[1])[1])) {
+for (s in (214:215)) {
+  song_weblink <- met_album_songs_w[s,2]
+  album_weblink <- met_album_songs_w[s,3]
+  met_album_song <- read_html(song_weblink)
+  song_banner <- met_album_song %>% html_nodes(".c-banner-heading") %>% html_text()
+  lyrics_copyright <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text2()
+  parts <- str_split_fixed(lyrics_copyright, "\n\n", n = 2)
+  song_lyrics <- parts[, 1]
+  song_copyright <- parts[, 2]
+  #Build list of writers per song
+      met_song_lyrics <- rbind(met_song_lyrics, data.frame(song_banner, song_weblink, album_weblink, song_copyright, song_lyrics, stringsAsFactors = FALSE))
+}
