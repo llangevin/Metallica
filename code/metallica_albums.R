@@ -170,12 +170,21 @@ for (s in (1:dim(met_album_songs_w[1])[1])) {
   album_weblink <- met_album_songs_w[s,3]
   met_album_song <- read_html(song_weblink)
   song_banner <- met_album_song %>% html_nodes(".c-banner-heading") %>% html_text()
-  lyrics_copyright <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text2()
-  parts <- str_split_fixed(lyrics_copyright, "\n\n", n = 2)
+  #manage copyrights
+  lyrics_copyright <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text()
+  parts <- str_split_fixed(lyrics_copyright, "© ", n = 2)
   song_lyrics <- parts[, 1]
-  song_copyright <- parts[, 2]
-  #Build list of writers per song
-  met_song_lyrics <- rbind(met_song_lyrics, data.frame(song_banner, song_weblink, album_weblink, song_copyright, song_lyrics, stringsAsFactors = FALSE))
+  song_copyright <- ""
+  if (str_split_fixed(parts[, 2], "\n", n = 2)[, 1] != "") {
+    song_copyright <- paste("© ", str_split_fixed(parts[, 2], "\n", n = 2)[, 1], sep = "")
+  }
+  #manage special notes
+  patterns <- "Originally released by|[“\"]Last Caress[”\"]|Released by Thin|Includes excerpts"
+  parts2 <- str_split_fixed(song_lyrics, paste0("(?=", patterns, ")"), n = 2)
+  song_lyrics <- str_trim(parts2[, 1]) # Part before the pattern
+  song_notes <- str_trim(parts2[, 2]) # Part starting with the pattern
+  #Build list of lyrics, copyright per song
+  met_song_lyrics <- rbind(met_song_lyrics, data.frame(song_banner, song_weblink, album_weblink, song_lyrics, song_copyright, song_notes, stringsAsFactors = FALSE))
 }
 
 #save the list of song/writers

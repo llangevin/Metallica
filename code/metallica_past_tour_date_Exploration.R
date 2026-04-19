@@ -742,8 +742,11 @@ for (s in (215:215)) {
 }
 
 #Song lyrics
-song_weblink <- met_album_songs[215,4]
-song_weblink <- met_album_songs[207,4]
+song_weblink <- met_album_songs[215,4]#hit-the-lights
+song_weblink <- met_album_songs[207,4]#fight-fire-with-fire
+song_weblink <- met_album_songs[198,4]#last-caress-green-hell
+song_weblink <- met_album_songs[197,4]#crash-course-in-brain-surgery
+song_weblink <- met_album_songs[127,4]#whiskey-in-the-jar
 met_album_song <- read_html(song_weblink)
 song_banner <- met_album_song %>% html_nodes(".c-banner-heading") %>% html_text()
 lyrics <- met_album_song %>% html_nodes(".c-song-detail__lyrics") %>% html_text()
@@ -776,4 +779,50 @@ for (s in (214:215)) {
   song_copyright <- parts[, 2]
   #Build list of writers per song
       met_song_lyrics <- rbind(met_song_lyrics, data.frame(song_banner, song_weblink, album_weblink, song_copyright, song_lyrics, stringsAsFactors = FALSE))
+}
+
+met_album_song <- read_html(song_weblink)
+lyrics_copyright <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text()
+parts <- str_split_fixed(lyrics_copyright, "© ", n = 2)
+song_lyrics <- parts[, 1]
+song_copyright <- paste("© ", str_split_fixed(parts[, 2], "\n", n = 2)[, 1], sep = "")
+
+met_song_lyrics <- data.frame()
+#for (s in (214:215)) {
+for (s in c(208,200,127,126,120)) {
+  song_weblink <- met_album_songs_w[s,2]
+  album_weblink <- met_album_songs_w[s,3]
+  met_album_song <- read_html(song_weblink)
+  song_banner <- met_album_song %>% html_nodes(".c-banner-heading") %>% html_text()
+  lyrics_copyright <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text()
+  parts <- str_split_fixed(lyrics_copyright, "© ", n = 2)
+  song_lyrics <- parts[, 1]
+  song_copyright <- paste("© ", str_split_fixed(parts[, 2], "\n", n = 2)[, 1], sep = "")
+  #Build list of writers per song
+  met_song_lyrics <- rbind(met_song_lyrics, data.frame(song_banner, song_weblink, album_weblink, song_copyright, song_lyrics, stringsAsFactors = FALSE))
+}
+
+met_song_lyrics <- data.frame()
+#for (s in (214:215)) {
+for (s in c(118,120,126,127,208,200)) {
+#for (s in c(118)) {
+  song_weblink <- met_album_songs_w[s,2]
+  album_weblink <- met_album_songs_w[s,3]
+  met_album_song <- read_html(song_weblink)
+  song_banner <- met_album_song %>% html_nodes(".c-banner-heading") %>% html_text()
+  lyrics_copyright <- met_album_song %>% html_nodes(".c-song-detail__lyrics__content") %>% html_text()
+  parts <- str_split_fixed(lyrics_copyright, "© ", n = 2)
+  song_lyrics <- parts[, 1]
+  song_copyright <- ""
+  if (str_split_fixed(parts[, 2], "\n", n = 2)[, 1] != "") {
+    song_copyright <- paste("© ", str_split_fixed(parts[, 2], "\n", n = 2)[, 1], sep = "")
+  }
+  
+  patterns <- "Originally released by|[“\"]Last Caress[”\"]|Released by Thin|Includes excerpts"
+  parts2 <- str_split_fixed(song_lyrics, paste0("(?=", patterns, ")"), n = 2)
+  song_lyrics <- str_trim(parts2[, 1]) # Part before the pattern
+  song_notes <- str_trim(parts2[, 2]) # Part starting with the pattern
+  
+  #Build list of lyrics, copyright per song
+  met_song_lyrics <- rbind(met_song_lyrics, data.frame(song_banner, song_weblink, album_weblink, song_lyrics, song_copyright, song_notes, stringsAsFactors = FALSE))
 }
